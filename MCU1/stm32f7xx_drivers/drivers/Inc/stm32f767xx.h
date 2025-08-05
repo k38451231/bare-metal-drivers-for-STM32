@@ -1,0 +1,116 @@
+/*
+ * stm32f767xx.h
+ *
+ *  Created on: Aug 4, 2025
+ *      Author: TUF
+ */
+
+#ifndef INC_STM32F767XX_H_
+#define INC_STM32F767XX_H_
+
+#include <stdint.h>
+
+#define __vo volatile
+
+/* base address of FLASH and SRAM memories */
+#define FLASH_BASEADDR 0x08000000U
+#define SRAM1_BASEADDR 0x20020000U
+#define SRAM2_BASEADDR 0x2007C000U
+#define ROM_BASEADDR   0x1FF00000U
+#define SRAM           SRAM1_BASEADDR
+
+/* AHBx and APBx Bus peripheral base addresses */
+#define PERIPH_BASE     0x40000000U
+
+#define APB1PERIPH_BASE PERIPH_BASE
+#define APB2PERIPH_BASE 0x40010000U
+
+#define AHB1PERIPH_BASE 0x40020000U
+#define AHB2PERIPH_BASE 0x50000000U
+#define AHB3PERIPH_BASE 0x60000000U
+
+/*
+ * Base address of peripherals which are hanging on AHB1 bus
+ */
+#define GPIOA_BASEADDR (AHB1PERIPH_BASE + 0X0000)
+#define GPIOB_BASEADDR (AHB1PERIPH_BASE + 0X0400)
+#define GPIOC_BASEADDR (AHB1PERIPH_BASE + 0X0800)
+#define GPIOD_BASEADDR (AHB1PERIPH_BASE + 0X0C00)
+#define GPIOE_BASEADDR (AHB1PERIPH_BASE + 0X1000)
+#define GPIOF_BASEADDR (AHB1PERIPH_BASE + 0X1400)
+#define GPIOG_BASEADDR (AHB1PERIPH_BASE + 0X1800)
+#define GPIOH_BASEADDR (AHB1PERIPH_BASE + 0X1C00)
+#define GPIOI_BASEADDR (AHB1PERIPH_BASE + 0X2000)
+#define GPIOJ_BASEADDR (AHB1PERIPH_BASE + 0X2400)
+#define GPIOK_BASEADDR (AHB1PERIPH_BASE + 0X2800)
+
+/*
+ * Base address of peripherals which are hanging on APB1 bus
+ */
+#define I2C1_BASEADDR   (APB1PERIPH_BASE + 0X5400)
+#define I2C2_BASEADDR   (APB1PERIPH_BASE + 0X5800)
+#define I2C3_BASEADDR   (APB1PERIPH_BASE + 0X5C00)
+#define I2C4_BASEADDR   (APB1PERIPH_BASE + 0X6000)
+
+#define SPI2_BASEADDR   (APB1PERIPH_BASE + 0X3800)
+#define SPI3_BASEADDR   (APB1PERIPH_BASE + 0X3C00)
+
+#define USART2_BASEADDR (APB1PERIPH_BASE + 0X4400)
+#define USART3_BASEADDR (APB1PERIPH_BASE + 0X4800)
+
+#define UART4_BASEADDR  (APB1PERIPH_BASE + 0X4C00)
+#define UART5_BASEADDR  (APB1PERIPH_BASE + 0X5000)
+#define UART7_BASEADDR  (APB1PERIPH_BASE + 0X7800)
+#define UART8_BASEADDR  (APB1PERIPH_BASE + 0X7C00)
+
+
+/*
+ * Base address of peripherals which are hanging on APB2 bus
+ */
+#define EXTI_BASEADDR   (APB2PERIPH_BASE + 0X3C00)
+
+#define SYSCFG_BASEADDR (APB2PERIPH_BASE + 0X3800)
+
+#define SPI1_BASEADDR   (APB2PERIPH_BASE + 0X3000)
+#define SPI4_BASEADDR   (APB2PERIPH_BASE + 0X3400)
+#define SPI5_BASEADDR   (APB2PERIPH_BASE + 0X5000)
+#define SPI6_BASEADDR   (APB2PERIPH_BASE + 0X5400)
+
+#define USART1_BASEADDR (APB2PERIPH_BASE + 0X1000)
+#define USART6_BASEADDR (APB2PERIPH_BASE + 0X1400)
+
+/*****************************Peripheral register definition structures******************************************/
+
+typedef struct
+{
+	__vo uint32_t MODER;    /* GPIO port mode register                            address offset 0x00*/
+	__vo uint32_t OTYPER;   /* GPIO port output type register                     address offset 0x04*/
+	__vo uint32_t OSPEEDR;  /* GPIO port output speed register                    address offset 0x08*/
+	__vo uint32_t PUPDR;    /* GPIO port pull-up/pull-down register               address offset 0x0C*/
+	__vo uint32_t IDR;      /* GPIO port input data register                      address offset 0x10*/
+	__vo uint32_t ODR;      /* GPIO port output data register                     address offset 0x14*/
+	__vo uint32_t BSRR;     /* GPIO port bit set/reset register                   address offset 0x18*/
+	__vo uint32_t LCKR;     /* GPIO port configuration lock register              address offset 0x1C*/
+	__vo uint32_t AFRL;     /* GPIO alternate function low register               address offset 0x20*/
+	__vo uint32_t AFRH;     /* GPIO alternate function high register              address offset 0x24*/
+
+}GPIO_RegDef_t;
+
+
+
+/*
+ * Peripheral definitions (peripheral base address typecasted to xxx_RegDef_t)
+ */
+#define GPIOA ((GPIO_RegDef_t*) GPIOA_BASEADDR);
+#define GPIOB ((GPIO_RegDef_t*) GPIOB_BASEADDR);
+#define GPIOC ((GPIO_RegDef_t*) GPIOC_BASEADDR);
+#define GPIOD ((GPIO_RegDef_t*) GPIOD_BASEADDR);
+#define GPIOE ((GPIO_RegDef_t*) GPIOE_BASEADDR);
+#define GPIOF ((GPIO_RegDef_t*) GPIOF_BASEADDR);
+#define GPIOG ((GPIO_RegDef_t*) GPIOG_BASEADDR);
+#define GPIOH ((GPIO_RegDef_t*) GPIOH_BASEADDR);
+#define GPIOI ((GPIO_RegDef_t*) GPIOI_BASEADDR);
+#define GPIOJ ((GPIO_RegDef_t*) GPIOJ_BASEADDR);
+#define GPIOK ((GPIO_RegDef_t*) GPIOK_BASEADDR);
+
+#endif /* INC_STM32F767XX_H_ */
