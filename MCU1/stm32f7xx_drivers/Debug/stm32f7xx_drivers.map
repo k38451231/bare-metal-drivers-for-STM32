@@ -60,6 +60,7 @@ Discarded input sections
  .group         0x00000000        0xc ./Src/main.o
  .group         0x00000000        0xc ./Src/main.o
  .group         0x00000000        0xc ./Src/main.o
+ .group         0x00000000        0xc ./Src/main.o
  .text          0x00000000        0x0 ./Src/main.o
  .data          0x00000000        0x0 ./Src/main.o
  .bss           0x00000000        0x0 ./Src/main.o
@@ -834,24 +835,25 @@ LOAD C:/ST/STM32CubeIDE_1.18.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_rnglists
                 0x00000013       0x19 ./Startup/startup_stm32f767zitx.o
 
-.debug_macro    0x00000000      0xfb6
- .debug_macro   0x00000000       0x6d ./Src/main.o
- .debug_macro   0x0000006d      0xafc ./Src/main.o
- .debug_macro   0x00000b69       0x22 ./Src/main.o
- .debug_macro   0x00000b8b       0x8e ./Src/main.o
- .debug_macro   0x00000c19       0x51 ./Src/main.o
- .debug_macro   0x00000c6a      0x103 ./Src/main.o
- .debug_macro   0x00000d6d       0x6a ./Src/main.o
- .debug_macro   0x00000dd7      0x1df ./Src/main.o
+.debug_macro    0x00000000     0x125d
+ .debug_macro   0x00000000       0x6c ./Src/main.o
+ .debug_macro   0x0000006c      0xafc ./Src/main.o
+ .debug_macro   0x00000b68       0x22 ./Src/main.o
+ .debug_macro   0x00000b8a       0x8e ./Src/main.o
+ .debug_macro   0x00000c18       0x51 ./Src/main.o
+ .debug_macro   0x00000c69      0x103 ./Src/main.o
+ .debug_macro   0x00000d6c       0x6a ./Src/main.o
+ .debug_macro   0x00000dd6      0x1df ./Src/main.o
+ .debug_macro   0x00000fb5      0x2a8 ./Src/main.o
 
 .debug_line     0x00000000      0x4ca
  .debug_line    0x00000000      0x44f ./Src/main.o
  .debug_line    0x0000044f       0x7b ./Startup/startup_stm32f767zitx.o
 
-.debug_str      0x00000000     0x3cdc
- .debug_str     0x00000000     0x3cdc ./Src/main.o
-                               0x3df8 (size before relaxing)
- .debug_str     0x00003cdc       0x76 ./Startup/startup_stm32f767zitx.o
+.debug_str      0x00000000     0x4d02
+ .debug_str     0x00000000     0x4d02 ./Src/main.o
+                               0x4e1e (size before relaxing)
+ .debug_str     0x00004d02       0x76 ./Startup/startup_stm32f767zitx.o
 
 .comment        0x00000000       0x43
  .comment       0x00000000       0x43 ./Src/main.o
