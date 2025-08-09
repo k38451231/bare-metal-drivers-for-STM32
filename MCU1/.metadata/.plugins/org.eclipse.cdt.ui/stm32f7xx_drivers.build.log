@@ -1,4 +1,4 @@
-17:46:20 **** Incremental Build of configuration Debug for project stm32f7xx_drivers ****
+01:45:18 **** Incremental Build of configuration Debug for project stm32f7xx_drivers ****
 make -j16 all 
 arm-none-eabi-gcc "../drivers/Src/stm32f767xx_gpio_driver.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DSTM32 -DNUCLEO_F767ZI -DSTM32F7 -DSTM32F767ZITx -c -I"D:/Udemy/MCU1/MCU1_course/MCU1/stm32f7xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"drivers/Src/stm32f767xx_gpio_driver.d" -MT"drivers/Src/stm32f767xx_gpio_driver.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/stm32f767xx_gpio_driver.o"
 arm-none-eabi-gcc -o "stm32f7xx_drivers.elf" @"objects.list"   -mcpu=cortex-m7 -T"D:\Udemy\MCU1\MCU1_course\MCU1\stm32f7xx_drivers\STM32F767ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f7xx_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
@@ -13,5 +13,5 @@ Finished building: default.size.stdout
 Finished building: stm32f7xx_drivers.list
  
 
-17:46:20 Build Finished. 0 errors, 0 warnings. (took 450ms)
+01:45:20 Build Finished. 0 errors, 0 warnings. (took 1s.511ms)
 
