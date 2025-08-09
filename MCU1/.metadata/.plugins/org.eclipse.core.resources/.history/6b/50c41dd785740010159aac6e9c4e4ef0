@@ -1,0 +1,19 @@
+/*
+ * stm32f767xx_gpio_driver.h
+ *
+ *  Created on: Aug 9, 2025
+ *      Author: TUF
+ */
+
+#ifndef INC_STM32F767XX_GPIO_DRIVER_H_
+#define INC_STM32F767XX_GPIO_DRIVER_H_
+
+#include "stm32f767xx.h"
+
+typedef struct{
+	//pointer to hold the base address of the GPIO peripherals
+	GPIO_RegDef_t *pGPIOx; /*this holds the base addr of the GPIO port to which the pin belongs*/
+
+}GPIO_Handle_t;
+
+#endif /* INC_STM32F767XX_GPIO_DRIVER_H_ */

@@ -1,0 +1,48 @@
+/*
+ * stm32f767xx_gpio_driver.c
+ *
+ *  Created on: Aug 9, 2025
+ *      Author: TUF
+ */
+
+
+#include "stm32f767xx_gpio_driver.h"
+
+/*
+ *  Peripheral Clock Setup
+ */
+
+/*******************************************************************************
+ *  @Function Name: GPIO_PeriClockControl
+ *
+ *  @Brief: function En/Disable peripheral clock for the given GPIO port
+ *
+ *  @param[in]: base address of the gpio peripheral
+ *  @param[in]: "enable" or "disable" macros
+ *
+ *  @Return: none
+ *
+ *  @Note: none
+ *
+ *********************************************************************************/
+void GPIO_PeriClockControl(GPIO_RegDef_t *pGPIOx, uint8_t EnorDi);
+/*
+ * Init and De-Init
+ */
+void GPIO_Init(GPIO_Handle_t *pGPIOHandle);
+void GPIO_DeInit(GPIO_RegDef_t *pGPIOx); //take base address of peripheral (reset register)
+
+/*
+ * Data read/write
+ */
+uint8_t GPIO_ReadFromInputPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber); //return 0/1, so use uint8_t
+uint16_t GPIO_ReadFromInputPort(GPIO_RegDef_t *pGPIOx); //16 PINS IN A PORT so use uint16
+void GPIO_WriteToOutputPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber, uint8_t Value); //take set or reset value
+void GPIO_WriteToOutputPort(GPIO_RegDef_t *pGPIOx, uint16_t Value);
+void GPIO_ToggleOutputPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber);
+/*
+ * IRQ Configuration and ISR handling
+ */
+void GPIO_IRQConfig(uint8_t IRQNumber, uint8_t IRQPriority, uint8_t EnorDi);
+void GPIO_IRQHandling(uint8_t PinNumber);
+

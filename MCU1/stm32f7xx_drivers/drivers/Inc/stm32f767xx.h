@@ -143,33 +143,33 @@ typedef struct{
 /*
  * Peripheral definitions (peripheral base address typecasted to xxx_RegDef_t)
  */
-#define GPIOA ((GPIO_RegDef_t*) GPIOA_BASEADDR);
-#define GPIOB ((GPIO_RegDef_t*) GPIOB_BASEADDR);
-#define GPIOC ((GPIO_RegDef_t*) GPIOC_BASEADDR);
-#define GPIOD ((GPIO_RegDef_t*) GPIOD_BASEADDR);
-#define GPIOE ((GPIO_RegDef_t*) GPIOE_BASEADDR);
-#define GPIOF ((GPIO_RegDef_t*) GPIOF_BASEADDR);
-#define GPIOG ((GPIO_RegDef_t*) GPIOG_BASEADDR);
-#define GPIOH ((GPIO_RegDef_t*) GPIOH_BASEADDR);
-#define GPIOI ((GPIO_RegDef_t*) GPIOI_BASEADDR);
-#define GPIOJ ((GPIO_RegDef_t*) GPIOJ_BASEADDR);
-#define GPIOK ((GPIO_RegDef_t*) GPIOK_BASEADDR);
-#define RCC   ((RCC_RegDef_t*) RCC_BASEADDR);
+#define GPIOA ((GPIO_RegDef_t*) GPIOA_BASEADDR)
+#define GPIOB ((GPIO_RegDef_t*) GPIOB_BASEADDR)
+#define GPIOC ((GPIO_RegDef_t*) GPIOC_BASEADDR)
+#define GPIOD ((GPIO_RegDef_t*) GPIOD_BASEADDR)
+#define GPIOE ((GPIO_RegDef_t*) GPIOE_BASEADDR)
+#define GPIOF ((GPIO_RegDef_t*) GPIOF_BASEADDR)
+#define GPIOG ((GPIO_RegDef_t*) GPIOG_BASEADDR)
+#define GPIOH ((GPIO_RegDef_t*) GPIOH_BASEADDR)
+#define GPIOI ((GPIO_RegDef_t*) GPIOI_BASEADDR)
+#define GPIOJ ((GPIO_RegDef_t*) GPIOJ_BASEADDR)
+#define GPIOK ((GPIO_RegDef_t*) GPIOK_BASEADDR)
+#define RCC   ((RCC_RegDef_t*) RCC_BASEADDR)
 
 /*
  * Clock enable Macros for GPIOx peripherals
  */
-#define GPIOA_PCLOCK_EN() (RCC->AHB1ENR |= (1 <<  0))
-#define GPIOB_PCLOCK_EN() (RCC->AHB1ENR |= (1 <<  1))
-#define GPIOC_PCLOCK_EN() (RCC->AHB1ENR |= (1 <<  2))
-#define GPIOD_PCLOCK_EN() (RCC->AHB1ENR |= (1 <<  3))
-#define GPIOE_PCLOCK_EN() (RCC->AHB1ENR |= (1 <<  4))
-#define GPIOF_PCLOCK_EN() (RCC->AHB1ENR |= (1 <<  5))
-#define GPIOG_PCLOCK_EN() (RCC->AHB1ENR |= (1 <<  6))
-#define GPIOH_PCLOCK_EN() (RCC->AHB1ENR |= (1 <<  7))
-#define GPIOI_PCLOCK_EN() (RCC->AHB1ENR |= (1 <<  8))
-#define GPIOJ_PCLOCK_EN() (RCC->AHB1ENR |= (1 <<  9))
-#define GPIOK_PCLOCK_EN() (RCC->AHB1ENR |= (1 << 10))
+#define GPIOA_PCLK_EN() (RCC->AHB1ENR |= (1 <<  0))
+#define GPIOB_PCLK_EN() (RCC->AHB1ENR |= (1 <<  1))
+#define GPIOC_PCLK_EN() (RCC->AHB1ENR |= (1 <<  2))
+#define GPIOD_PCLK_EN() (RCC->AHB1ENR |= (1 <<  3))
+#define GPIOE_PCLK_EN() (RCC->AHB1ENR |= (1 <<  4))
+#define GPIOF_PCLK_EN() (RCC->AHB1ENR |= (1 <<  5))
+#define GPIOG_PCLK_EN() (RCC->AHB1ENR |= (1 <<  6))
+#define GPIOH_PCLK_EN() (RCC->AHB1ENR |= (1 <<  7))
+#define GPIOI_PCLK_EN() (RCC->AHB1ENR |= (1 <<  8))
+#define GPIOJ_PCLK_EN() (RCC->AHB1ENR |= (1 <<  9))
+#define GPIOK_PCLK_EN() (RCC->AHB1ENR |= (1 << 10))
 
 /*
  * Clock enable Macros for I2Cx peripherals
@@ -203,17 +203,17 @@ typedef struct{
 /*
  * Clock Disable Macros for GPIOx peripherals
  */
-#define GPIOA_PCLOCK_DI() (RCC->AHB1ENR &= ~(1 <<  0))
-#define GPIOB_PCLOCK_DI() (RCC->AHB1ENR &= ~(1 <<  1))
-#define GPIOC_PCLOCK_DI() (RCC->AHB1ENR &= ~(1 <<  2))
-#define GPIOD_PCLOCK_DI() (RCC->AHB1ENR &= ~(1 <<  3))
-#define GPIOE_PCLOCK_DI() (RCC->AHB1ENR &= ~(1 <<  4))
-#define GPIOF_PCLOCK_DI() (RCC->AHB1ENR &= ~(1 <<  5))
-#define GPIOG_PCLOCK_DI() (RCC->AHB1ENR &= ~(1 <<  6))
-#define GPIOH_PCLOCK_DI() (RCC->AHB1ENR &= ~(1 <<  7))
-#define GPIOI_PCLOCK_DI() (RCC->AHB1ENR &= ~(1 <<  8))
-#define GPIOJ_PCLOCK_DI() (RCC->AHB1ENR &= ~(1 <<  9))
-#define GPIOK_PCLOCK_DI() (RCC->AHB1ENR &= ~(1 << 10))
+#define GPIOA_PCLK_DI() (RCC->AHB1ENR &= ~(1 <<  0))
+#define GPIOB_PCLK_DI() (RCC->AHB1ENR &= ~(1 <<  1))
+#define GPIOC_PCLK_DI() (RCC->AHB1ENR &= ~(1 <<  2))
+#define GPIOD_PCLK_DI() (RCC->AHB1ENR &= ~(1 <<  3))
+#define GPIOE_PCLK_DI() (RCC->AHB1ENR &= ~(1 <<  4))
+#define GPIOF_PCLK_DI() (RCC->AHB1ENR &= ~(1 <<  5))
+#define GPIOG_PCLK_DI() (RCC->AHB1ENR &= ~(1 <<  6))
+#define GPIOH_PCLK_DI() (RCC->AHB1ENR &= ~(1 <<  7))
+#define GPIOI_PCLK_DI() (RCC->AHB1ENR &= ~(1 <<  8))
+#define GPIOJ_PCLK_DI() (RCC->AHB1ENR &= ~(1 <<  9))
+#define GPIOK_PCLK_DI() (RCC->AHB1ENR &= ~(1 << 10))
 
 /*
  * Clock Disable Macros for I2Cx peripherals
@@ -243,6 +243,17 @@ typedef struct{
  * Clock Disable Macros for SYSCFG peripherals
  */
 #define SYSCFG_PCLK_DI() (RCC->APB2ENR &= ~(1<<14))
+
+
+/*
+ * some generic macros
+ */
+#define ENABLE 1
+#define DISABLE 0
+#define SET ENABLE
+#define RESET DISABLE
+#define GPIO_PIN_SET SET
+#define GPIO_PIN_RESET RESET
 
 
 #endif /* INC_STM32F767XX_H_ */
