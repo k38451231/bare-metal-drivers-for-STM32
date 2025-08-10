@@ -1,0 +1,54 @@
+/*
+ * 002led_button.c
+ *
+ *  Created on: Aug 10, 2025
+ *      Author: TUF
+ */
+#include "stm32f767xx.h"
+#include "stm32f767xx_gpio_driver.h"
+
+#define HIGH 1
+#define BTN_PRESSED HIGH
+
+void delay(void)
+{
+	for(uint32_t i=0 ; i<500000 ; i++);
+}
+
+int main(void)
+{
+	GPIO_Handle_t GpioLed;
+	GPIO_Handle_t GPIO_Btn;
+
+	/* LED2 on PB7 */
+	GpioLed.pGPIOx = GPIOB;
+	GpioLed.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_7;
+	GpioLed.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_OUT;
+	GpioLed.GPIO_PinConfig.GPIO_PinSpeed = GPIO_SPEED_FAST;
+	GpioLed.GPIO_PinConfig.GPIO_PinOPType = GPIO_OP_TYPE_PP; // push pull mode
+	GpioLed.GPIO_PinConfig.GPIO_PinPuPdControl = GPIO_NO_PUPD;
+
+	GPIO_PeriClockControl(GPIOB, ENABLE);
+	GPIO_Init(&GpioLed);
+
+	/* USER button on PC13, Pressed -> HIGH */
+	/* don't need to care out type cause Button is input */
+	GPIO_Btn.pGPIOx = GPIOC;
+	GPIO_Btn.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_13;
+	GPIO_Btn.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_IN;
+	GPIO_Btn.GPIO_PinConfig.GPIO_PinSpeed = GPIO_SPEED_FAST;
+	GPIO_Btn.GPIO_PinConfig.GPIO_PinPuPdControl = GPIO_NO_PUPD; //btn has external pull down, don't care internal
+
+	GPIO_PeriClockControl(GPIOC, ENABLE);
+	GPIO_Init(&GPIO_Btn);
+
+	while(1)
+	{
+		if(GPIO_ReadFromInputPin(GPIOC, GPIO_PIN_NO_13) == BTN_PRESSED)
+		{
+			GPIO_ToggleOutputPin(GPIOB, GPIO_PIN_NO_7);
+		}
+	}
+
+	return 0;
+}
