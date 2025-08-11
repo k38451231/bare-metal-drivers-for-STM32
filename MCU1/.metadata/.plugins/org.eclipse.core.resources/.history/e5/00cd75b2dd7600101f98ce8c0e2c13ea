@@ -138,29 +138,6 @@ typedef struct{
 	__vo uint32_t DCKCFGR2;
 }RCC_RegDef_t;
 
-// peripheral register definition structure for EXTI
-typedef struct
-{
-	__vo uint32_t IMR;    /* GPIO port mode register                            address offset 0x00*/
-	__vo uint32_t EMR;    /* GPIO port mode register                            address offset 0x00*/
-	__vo uint32_t RTSR;    /* GPIO port mode register                            address offset 0x00*/
-	__vo uint32_t FTSR;    /* GPIO port mode register                            address offset 0x00*/
-	__vo uint32_t SWIER;    /* GPIO port mode register                            address offset 0x00*/
-	__vo uint32_t PR;    /* GPIO port mode register                            address offset 0x00*/
-}EXTI_RegDef_t;
-
-// peripheral register definition structure for EXTI
-typedef struct
-{
-	__vo uint32_t MEMRMP;    /* GPIO port mode register                            address offset 0x00*/
-	__vo uint32_t PMC;    /* GPIO port mode register                            address offset 0x00*/
-	__vo uint32_t EXTICR1;    /* GPIO port mode register                            address offset 0x00*/
-	__vo uint32_t EXTICR2;    /* GPIO port mode register                            address offset 0x00*/
-	__vo uint32_t EXTICR3;    /* GPIO port mode register                            address offset 0x00*/
-	__vo uint32_t EXTICR4;    /* GPIO port mode register                            address offset 0x00*/
-	__vo uint32_t CBR;    /* GPIO port mode register                            address offset 0x00*/
-	__vo uint32_t CMPCR;    /* GPIO port mode register                            address offset 0x00*/
-}SYSCFG_RegDef_t;
 
 
 /*
@@ -179,7 +156,7 @@ typedef struct
 #define GPIOK ((GPIO_RegDef_t*) GPIOK_BASEADDR)
 #define RCC   ((RCC_RegDef_t*) RCC_BASEADDR)
 
-#define EXTI  ((EXTI_RegDef_t*) EXTI_BASEADDR)
+#define EXTI  ((RCC_RegDef_t*) EXTI_BASEADDR)
 
 /*
  * Clock enable Macros for GPIOx peripherals
