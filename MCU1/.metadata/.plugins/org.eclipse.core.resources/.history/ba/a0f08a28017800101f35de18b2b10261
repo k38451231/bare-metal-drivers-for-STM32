@@ -358,14 +358,5 @@ void GPIO_IRQPriorityConfig(uint8_t IRQNumber, uint8_t IRQPriority)
 	*(NVIC_PR_BASE_ADDR + (iprx*4) ) |= (IRQPriority << shift_amount);
 }
 
-void GPIO_IRQHandling(uint8_t PinNumber)
-{
-	//clear the EXTI PR register corresponding to the pin number
-	if (EXTI->PR & (1 << PinNumber))
-	{
-		//clear, write one by the mention in register details
-		EXTI->PR |= (1 << PinNumber);
-	}
-
-}
+void GPIO_IRQHandling(uint8_t PinNumber);
 
