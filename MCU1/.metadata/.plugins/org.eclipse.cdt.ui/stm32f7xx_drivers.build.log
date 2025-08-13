@@ -1,21 +1,17 @@
-13:03:10 **** Incremental Build of configuration Debug for project stm32f7xx_drivers ****
+02:36:52 **** Incremental Build of configuration Debug for project stm32f7xx_drivers ****
 make -j16 all 
-arm-none-eabi-gcc "../drivers/Src/stm32f767xx_gpio_driver.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DSTM32 -DNUCLEO_F767ZI -DSTM32F7 -DSTM32F767ZITx -c -I"D:/Udemy/MCU1/MCU1_course/MCU1/stm32f7xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"drivers/Src/stm32f767xx_gpio_driver.d" -MT"drivers/Src/stm32f767xx_gpio_driver.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/stm32f767xx_gpio_driver.o"
-arm-none-eabi-gcc -mcpu=cortex-m7 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f767zitx.d" -MT"Startup/startup_stm32f767zitx.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Startup/startup_stm32f767zitx.o" "../Startup/startup_stm32f767zitx.s"
-arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DSTM32 -DNUCLEO_F767ZI -DSTM32F7 -DSTM32F767ZITx -c -I"D:/Udemy/MCU1/MCU1_course/MCU1/stm32f7xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
-arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DSTM32 -DNUCLEO_F767ZI -DSTM32F7 -DSTM32F767ZITx -c -I"D:/Udemy/MCU1/MCU1_course/MCU1/stm32f7xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Src/syscalls.o"
-arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DSTM32 -DNUCLEO_F767ZI -DSTM32F7 -DSTM32F767ZITx -c -I"D:/Udemy/MCU1/MCU1_course/MCU1/stm32f7xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Src/sysmem.o"
+arm-none-eabi-gcc "../Src/005button_interrupt.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DSTM32 -DNUCLEO_F767ZI -DSTM32F7 -DSTM32F767ZITx -c -I"D:/Udemy/MCU1/MCU1_course/MCU1/stm32f7xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/005button_interrupt.d" -MT"Src/005button_interrupt.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Src/005button_interrupt.o"
 arm-none-eabi-gcc -o "stm32f7xx_drivers.elf" @"objects.list"   -mcpu=cortex-m7 -T"D:\Udemy\MCU1\MCU1_course\MCU1\stm32f7xx_drivers\STM32F767ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f7xx_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: stm32f7xx_drivers.elf
  
 arm-none-eabi-size  stm32f7xx_drivers.elf 
 arm-none-eabi-objdump -h -S stm32f7xx_drivers.elf  > "stm32f7xx_drivers.list"
    text	   data	    bss	    dec	    hex	filename
-    852	      0	   1568	   2420	    974	stm32f7xx_drivers.elf
+   2868	      0	   1568	   4436	   1154	stm32f7xx_drivers.elf
 Finished building: default.size.stdout
  
 Finished building: stm32f7xx_drivers.list
  
 
-13:03:11 Build Finished. 0 errors, 0 warnings. (took 496ms)
+02:36:52 Build Finished. 0 errors, 0 warnings. (took 447ms)
 

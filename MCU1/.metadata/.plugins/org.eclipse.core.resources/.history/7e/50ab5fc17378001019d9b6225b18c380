@@ -1,0 +1,64 @@
+/*
+ * 005button_interrupt.c
+ *
+ *  Created on: Aug 14, 2025
+ *      Author: TUF
+ */
+
+
+/*
+ * 002led_button.c
+ *
+ *  Created on: Aug 10, 2025
+ *      Author: TUF
+ */
+#include "stm32f767xx.h"
+#include "stm32f767xx_gpio_driver.h"
+
+#define HIGH 1
+#define BTN_PRESSED HIGH
+
+void delay(void)
+{
+	for(uint32_t i=0 ; i<500000/2 ; i++);
+}
+
+int main(void)
+{
+	GPIO_Handle_t GpioLed;
+	GPIO_Handle_t GPIO_Btn;
+
+	/* LED2 on PB7 */
+	GpioLed.pGPIOx = GPIOB;
+	GpioLed.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_7;
+	GpioLed.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_OUT;
+	GpioLed.GPIO_PinConfig.GPIO_PinSpeed = GPIO_SPEED_FAST;
+	GpioLed.GPIO_PinConfig.GPIO_PinOPType = GPIO_OP_TYPE_PP; // push pull mode
+	GpioLed.GPIO_PinConfig.GPIO_PinPuPdControl = GPIO_NO_PUPD;
+
+	GPIO_PeriClockControl(GPIOB, ENABLE);
+	GPIO_Init(&GpioLed);
+
+	/* external button PD5 */
+	GPIO_Btn.pGPIOx = GPIOD;
+	GPIO_Btn.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_5;
+	GPIO_Btn.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_IT_FT;
+	GPIO_Btn.GPIO_PinConfig.GPIO_PinSpeed = GPIO_SPEED_FAST;
+	GPIO_Btn.GPIO_PinConfig.GPIO_PinPuPdControl = GPIO_PIN_PU;
+	GPIO_PeriClockControl(GPIOD, ENABLE);
+	GPIO_Init(&GPIO_Btn);
+
+	/* IRQ Configurations */
+	GPIO_IRQPriorityConfig(IRQ_NO_EXTI9_5, NVIC_IRQ_PRIO15);
+	GPIO_IRQInterruptConfig(IRQ_NO_EXTI9_5, ENABLE);
+
+	while(1);
+	return 0;
+}
+
+//implement ISR
+void EXTI9_5_IRQHandler(void)
+{
+	GPIO_IRQHandling(GPIO_PIN_NO_5);
+	GPIO_ToggleOutputPin(GPIOB, GPIO_PIN_NO_7);
+}
