@@ -1,0 +1,13 @@
+/*
+ * stm32f767xx_spi_driver.h
+ *
+ *  Created on: Aug 17, 2025
+ *      Author: TUF
+ */
+
+#ifndef INC_STM32F767XX_SPI_DRIVER_H_
+#define INC_STM32F767XX_SPI_DRIVER_H_
+
+#include "stm32f767xx.h"
+
+#endif /* INC_STM32F767XX_SPI_DRIVER_H_ */
