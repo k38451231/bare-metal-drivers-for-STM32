@@ -41,29 +41,49 @@ void SPI_PeriClockControl(SPI_RegDef_t *pSPIx, uint8_t EnorDi)
 	}
 	else
 	{
-		if(pSPIx == SPI1)
+		if(pGPIOx == GPIOA)
 		{
-			SPI1_PCLK_DI();
+			GPIOA_PCLK_DI();
 		}
-		else if(pSPIx == SPI2)
+		else if(pGPIOx == GPIOB)
 		{
-			SPI2_PCLK_DI();
+			GPIOB_PCLK_DI();
 		}
-		else if(pSPIx == SPI3)
+		else if(pGPIOx == GPIOC)
 		{
-			SPI3_PCLK_DI();
+			GPIOC_PCLK_DI();
 		}
-		else if(pSPIx == SPI4)
+		else if(pGPIOx == GPIOD)
 		{
-			SPI4_PCLK_DI();
+			GPIOD_PCLK_DI();
 		}
-		else if(pSPIx == SPI5)
+		else if(pGPIOx == GPIOE)
 		{
-			SPI5_PCLK_DI();
+			GPIOE_PCLK_DI();
 		}
-		else if(pSPIx == SPI6)
+		else if(pGPIOx == GPIOF)
 		{
-			SPI6_PCLK_DI();
+			GPIOF_PCLK_DI();
+		}
+		else if(pGPIOx == GPIOG)
+		{
+			GPIOG_PCLK_DI();
+		}
+		else if(pGPIOx == GPIOH)
+		{
+			GPIOH_PCLK_DI();
+		}
+		else if(pGPIOx == GPIOI)
+		{
+			GPIOI_PCLK_DI();
+		}
+		else if(pGPIOx == GPIOJ)
+		{
+			GPIOJ_PCLK_DI();
+		}
+		else if(pGPIOx == GPIOK)
+		{
+			GPIOK_PCLK_DI();
 		}
 
 	}
