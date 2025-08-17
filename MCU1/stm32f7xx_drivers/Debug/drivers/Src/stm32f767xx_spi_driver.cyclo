@@ -1,1 +1,5 @@
 ../drivers/Src/stm32f767xx_spi_driver.c:12:6:SPI_PeriClockControl	14
+../drivers/Src/stm32f767xx_spi_driver.c:73:6:SPI_Init	4
+../drivers/Src/stm32f767xx_spi_driver.c:120:6:SPI_DeInit	7
+../drivers/Src/stm32f767xx_spi_driver.c:148:9:SPI_GetFlagStatus	2
+../drivers/Src/stm32f767xx_spi_driver.c:157:6:SPI_SendData	4
