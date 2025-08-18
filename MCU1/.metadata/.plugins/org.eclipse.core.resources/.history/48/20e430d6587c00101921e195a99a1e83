@@ -1,0 +1,21 @@
+/*
+ * 006spi_tx_testing.c
+ *
+ *  Created on: Aug 17, 2025
+ *      Author: TUF
+ */
+
+#include "stm32f767xx.h"
+#include "stm32f767xx_spi_driver.h"
+
+/*
+ * PB12 --> NSS
+ * PB13 --> SCK
+ * PB14 --> MISO
+ * PB15 --> MOSI
+ */
+
+int main(void){
+
+	return 0;
+}

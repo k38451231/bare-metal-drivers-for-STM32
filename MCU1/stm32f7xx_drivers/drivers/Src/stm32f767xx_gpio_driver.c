@@ -138,6 +138,9 @@ void GPIO_Init(GPIO_Handle_t *pGPIOHandle){
 	/* 1. configure the mode of the gpio pin */
 	uint32_t temp = 0;
 
+	// enable the peripheral clock for GPIOx
+	GPIO_PeriClockControl(pGPIOHandle->pGPIOx, ENABLE);
+
 	if(pGPIOHandle->GPIO_PinConfig.GPIO_PinMode <= 	GPIO_MODE_ANALOG){
 		// non-interrupt mode
 		// each pin takes 2 bit fields, so we multiply the pin number to 2
