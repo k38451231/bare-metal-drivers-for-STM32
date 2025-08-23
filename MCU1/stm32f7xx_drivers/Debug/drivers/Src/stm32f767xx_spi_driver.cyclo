@@ -4,3 +4,4 @@
 ../drivers/Src/stm32f767xx_spi_driver.c:151:9:SPI_GetFlagStatus	2
 ../drivers/Src/stm32f767xx_spi_driver.c:160:6:SPI_SendData	4
 ../drivers/Src/stm32f767xx_spi_driver.c:194:6:SPI_PeripheralControl	2
+../drivers/Src/stm32f767xx_spi_driver.c:206:6:SPI_ReceiveData	4

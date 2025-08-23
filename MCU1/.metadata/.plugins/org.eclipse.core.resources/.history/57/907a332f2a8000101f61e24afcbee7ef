@@ -203,36 +203,3 @@ void SPI_PeripheralControl(SPI_RegDef_t *pSPIx, uint8_t EnorDi)
 	}
 }
 
-void SPI_ReceiveData(SPI_RegDef_t *pSPIx, uint8_t *pRxBuffer, uint32_t Len)
-{
-	//SendData is a blocking call, only return when finished
-	while(Len > 0)
-	{
-		//1. wait until RXNE is set (RX buffer is NOT empty)
-		while( SPI_GetFlagStatus(pSPIx, SPI_RXNE_FLAG) == FLAG_RESET );
-
-		//2. check the DFF bit in CR1 (DFF in f407 = CRCL in f767)
-		if(pSPIx->CR1 & (1 << SPI_CR1_CRCL))
-		{
-			// 16-bit CRC length
-
-			// 2-1 load the data "from" DR
-			*((uint16_t*) pRxBuffer) = pSPIx->DR ;
-
-			// 2-2 sending 2 bytes of data, length - 2
-			Len--;
-			Len--;
-
-			// 2-3 buffer should increase by 2
-			(uint16_t*) pRxBuffer++;
-		}
-		else
-		{
-			// 8-bit CRC length
-			*pRxBuffer = pSPIx->DR ; //didn't need type casting
-			Len--;
-			pRxBuffer++; //increase by 1
-		}
-	}
-
-}
