@@ -20,6 +20,9 @@ The repository following the course "(MCU1) Learn bare metal driver development 
 3. SPI Exercise
 >/stm32f7xx_drivers/Src/006spi_tx_testing.c
 
+4. Communication between STM32 and Arduino using SPI
+> The project hasn’t been created yet.
+
 ---
 ## Completed :
 1. GPIO Driver APIs

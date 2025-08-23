@@ -5,3 +5,8 @@
 ../drivers/Src/stm32f767xx_spi_driver.c:160:6:SPI_SendData	4
 ../drivers/Src/stm32f767xx_spi_driver.c:194:6:SPI_PeripheralControl	2
 ../drivers/Src/stm32f767xx_spi_driver.c:206:6:SPI_ReceiveData	4
+../drivers/Src/stm32f767xx_spi_driver.c:240:6:SPI_IRQInterruptConfig	12
+../drivers/Src/stm32f767xx_spi_driver.c:280:6:SPI_IRQPriorityConfig	1
+../drivers/Src/stm32f767xx_spi_driver.c:291:6:SPI_IRQHandling	1
+../drivers/Src/stm32f767xx_spi_driver.c:296:9:SPI_SendDataIT	2
+../drivers/Src/stm32f767xx_spi_driver.c:318:9:SPI_ReceiveDataIT	2
