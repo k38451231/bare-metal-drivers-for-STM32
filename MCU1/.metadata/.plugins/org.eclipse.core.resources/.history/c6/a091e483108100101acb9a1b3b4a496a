@@ -9,11 +9,6 @@
 #include "stm32f767xx.h"
 #include "stm32f767xx_spi_driver.h"
 
-// private helper function -> static
-static void spi_txe_interrupt_handle(SPI_Handle_t *pSPIHandle)
-static void spi_rxne_interrupt_handle(SPI_Handle_t *pSPIHandle);
-static void spi_ovr_err_interrupt_handle(SPI_Handle_t *pSPIHandle);
-
 void SPI_PeriClockControl(SPI_RegDef_t *pSPIx, uint8_t EnorDi)
 {
 	if(EnorDi == ENABLE)
@@ -348,7 +343,7 @@ void SPI_IRQHandling(SPI_Handle_t *pSPIHandle)
 	temp1 = pSPIHandle->pSPIx->SR & (1 << SPI_SR_TXE);
 	temp2 = pSPIHandle->pSPIx->CR2 & (1 << SPI_CR2_TXEIE);
 
-	if(temp1 && temp2)
+	if(temp1 && temp1)
 	{
 		spi_txe_interrupt_handle();
 	}
@@ -357,7 +352,7 @@ void SPI_IRQHandling(SPI_Handle_t *pSPIHandle)
 	temp1 = pSPIHandle->pSPIx->SR & (1 << SPI_SR_RXNE);
 	temp2 = pSPIHandle->pSPIx->CR2 & (1 << SPI_CR2_RXNEIE);
 
-	if(temp1 && temp2)
+	if(temp1 && temp1)
 	{
 		spi_rxne_interrupt_handle();
 	}
@@ -366,56 +361,9 @@ void SPI_IRQHandling(SPI_Handle_t *pSPIHandle)
 	temp1 = pSPIHandle->pSPIx->SR & (1 << SPI_SR_OVR);
 	temp2 = pSPIHandle->pSPIx->CR2 & (1 << SPI_CR2_ERRIE);
 
-	if(temp1 && temp2)
+	if(temp1 && temp1)
 	{
 		spi_ovr_err_interrupt_handle();
 	}
-}
-
-// some helper functions
-static void spi_txe_interrupt_handle(SPI_Handle_t *pSPIHandle)
-{
-	//2. check the DFF bit in CR1 (DFF in f407 = CRCL in f767)
-	if(pSPIHandle->pSPIx->CR1 & (1 << SPI_CR1_CRCL))
-	{
-		// 16-bit CRC length
-		// 2-1 load the data into DR
-		pSPIHandle->pSPIx->DR = *((uint16_t*) pSPIHandle->pTxBuffer);
-
-		// 2-2 sending 2 bytes of data, length - 2
-		pSPIHandle->TxLen--;
-		pSPIHandle->TxLen--;
-
-		// 2-3 buffer should increase by 2
-		(uint16_t*) pSPIHandle->pTxBuffer++;
-	}
-	else
-	{
-		// 8-bit CRC length
-		pSPIHandle->pSPIx->DR = *pSPIHandle->pTxBuffer; //didn't need type casting
-		pSPIHandle->TxLen--;
-		pSPIHandle->pTxBuffer++;
-	}
-
-	// if len = 0
-	if(! pSPIHandle->TxLen)
-	{
-		// if TX length =0, close the SPI transmission and inform the application that TX is over
-
-		// prevent interrupts from setting up of TXE flag
-		pSPIHandle->pSPIx->CR2 &= ~(1 << SPI_CR2_TXEIE); /*clear bit*/
-		pSPIHandle->pTxBuffer = NULL;
-		pSPIHandle->TxLen = 0;
-		pSPIHandle->TxState = SPI_READY;
-		SPI_ApplicationEventCallback(pSPIHandle, SPI_EVENT_TX_CMPLT);
-	}
-}
-static void spi_rxne_interrupt_handle(SPI_Handle_t *pSPIHandle)
-{
-
-
-}
-static void spi_ovr_err_interrupt_handle(SPI_Handle_t *pSPIHandle){
-
 }
 
