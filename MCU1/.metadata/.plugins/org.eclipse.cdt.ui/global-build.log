@@ -1,68 +1,7 @@
-01:40:42 **** Incremental Build of configuration Debug for project stm32f7xx_drivers ****
+13:02:48 **** Incremental Build of configuration Debug for project stm32f7xx_drivers ****
 make -j16 all 
-arm-none-eabi-gcc "../drivers/Src/stm32f767xx_gpio_driver.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DSTM32 -DNUCLEO_F767ZI -DSTM32F7 -DSTM32F767ZITx -c -I"D:/Udemy/MCU1/MCU1_course/MCU1/stm32f7xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"drivers/Src/stm32f767xx_gpio_driver.d" -MT"drivers/Src/stm32f767xx_gpio_driver.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/stm32f767xx_gpio_driver.o"
-arm-none-eabi-gcc "../drivers/Src/stm32f767xx_spi_driver.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DSTM32 -DNUCLEO_F767ZI -DSTM32F7 -DSTM32F767ZITx -c -I"D:/Udemy/MCU1/MCU1_course/MCU1/stm32f7xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"drivers/Src/stm32f767xx_spi_driver.d" -MT"drivers/Src/stm32f767xx_spi_driver.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/stm32f767xx_spi_driver.o"
-arm-none-eabi-gcc "../Src/006spi_tx_testing.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DSTM32 -DNUCLEO_F767ZI -DSTM32F7 -DSTM32F767ZITx -c -I"D:/Udemy/MCU1/MCU1_course/MCU1/stm32f7xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/006spi_tx_testing.d" -MT"Src/006spi_tx_testing.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Src/006spi_tx_testing.o"
-../drivers/Src/stm32f767xx_spi_driver.c: In function 'spi_txe_interrupt_handle':
-../drivers/Src/stm32f767xx_spi_driver.c:14:13: error: storage class specified for parameter 'spi_rxne_interrupt_handle'
-   14 | static void spi_rxne_interrupt_handle(SPI_Handle_t *pSPIHandle);
-      |             ^~~~~~~~~~~~~~~~~~~~~~~~~
-../drivers/Src/stm32f767xx_spi_driver.c:15:13: error: storage class specified for parameter 'spi_ovr_err_interrupt_handle'
-   15 | static void spi_ovr_err_interrupt_handle(SPI_Handle_t *pSPIHandle);
-      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
-../drivers/Src/stm32f767xx_spi_driver.c:18:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
-   18 | {
-      | ^
-../drivers/Src/stm32f767xx_spi_driver.c:79:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
-   79 | {
-      | ^
-../drivers/Src/stm32f767xx_spi_driver.c:129:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
-  129 | {
-      | ^
-../drivers/Src/stm32f767xx_spi_driver.c:157:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
-  157 | {
-      | ^
-../drivers/Src/stm32f767xx_spi_driver.c:166:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
-  166 | {
-      | ^
-../drivers/Src/stm32f767xx_spi_driver.c:200:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
-  200 | {
-      | ^
-../drivers/Src/stm32f767xx_spi_driver.c:212:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
-  212 | {
-      | ^
-../drivers/Src/stm32f767xx_spi_driver.c:246:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
-  246 | {
-      | ^
-../drivers/Src/stm32f767xx_spi_driver.c:286:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
-  286 | {
-      | ^
-../drivers/Src/stm32f767xx_spi_driver.c:299:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
-  299 | {
-      | ^
-../drivers/Src/stm32f767xx_spi_driver.c:321:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
-  321 | {
-      | ^
-../drivers/Src/stm32f767xx_spi_driver.c:344:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
-  344 | {
-      | ^
-../drivers/Src/stm32f767xx_spi_driver.c:377:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
-  377 | {
-      | ^
-../drivers/Src/stm32f767xx_spi_driver.c:414:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
-  414 | {
-      | ^
-../drivers/Src/stm32f767xx_spi_driver.c:418:67: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
-  418 | static void spi_ovr_err_interrupt_handle(SPI_Handle_t *pSPIHandle){
-      |                                                                   ^
-../drivers/Src/stm32f767xx_spi_driver.c:13:13: error: old-style parameter declarations in prototyped function definition
-   13 | static void spi_txe_interrupt_handle(SPI_Handle_t *pSPIHandle)
-      |             ^~~~~~~~~~~~~~~~~~~~~~~~
-../drivers/Src/stm32f767xx_spi_driver.c:423: error: expected '{' at end of input
-../drivers/Src/stm32f767xx_spi_driver.c: At top level:
-../drivers/Src/stm32f767xx_spi_driver.c:13:13: warning: 'spi_txe_interrupt_handle' defined but not used [-Wunused-function]
-   13 | static void spi_txe_interrupt_handle(SPI_Handle_t *pSPIHandle)
-      |             ^~~~~~~~~~~~~~~~~~~~~~~~
-make: *** [drivers/Src/subdir.mk:22: drivers/Src/stm32f767xx_spi_driver.o] Error 1
-make: *** Waiting for unfinished jobs....
-"make -j16 all" terminated with exit code 2. Build might be incomplete.
+arm-none-eabi-size  stm32f7xx_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3108	      0	   1568	   4676	   1244	stm32f7xx_drivers.elf
+Finished building: default.size.stdout
+ 

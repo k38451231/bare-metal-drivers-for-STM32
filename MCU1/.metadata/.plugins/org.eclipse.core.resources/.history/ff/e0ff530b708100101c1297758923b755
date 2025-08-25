@@ -350,7 +350,7 @@ void SPI_IRQHandling(SPI_Handle_t *pSPIHandle)
 
 	if(temp1 && temp2)
 	{
-		spi_txe_interrupt_handle(pSPIHandle);
+		spi_txe_interrupt_handle();
 	}
 
 	// First, check RXNE
@@ -359,7 +359,7 @@ void SPI_IRQHandling(SPI_Handle_t *pSPIHandle)
 
 	if(temp1 && temp2)
 	{
-		spi_rxne_interrupt_handle(pSPIHandle);
+		spi_rxne_interrupt_handle();
 	}
 
 	// First, check OVR FLAG
@@ -368,7 +368,7 @@ void SPI_IRQHandling(SPI_Handle_t *pSPIHandle)
 
 	if(temp1 && temp2)
 	{
-		spi_ovr_err_interrupt_handle(pSPIHandle);
+		spi_ovr_err_interrupt_handle();
 	}
 }
 
@@ -475,8 +475,4 @@ void SPI_CLearOVRFlag(SPI_RegDef_t *pSPIx){
 	(void)temp;
 }
 
-__weak void SPI_ApplicationEventCallback(SPI_Handle_t *pSPIHandle, uint8_t AppEv){
 
-	// This is a weak implementation, the user application may "override" this function.
-
-}

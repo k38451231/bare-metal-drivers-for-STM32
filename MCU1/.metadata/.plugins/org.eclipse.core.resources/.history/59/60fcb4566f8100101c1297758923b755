@@ -158,12 +158,6 @@ void SPI_IRQHandling(SPI_Handle_t *pSPIHandle);
 void SPI_PeripheralControl(SPI_RegDef_t *pSPIx, uint8_t EnorDi);
 
 void SPI_CLearOVRFlag(SPI_RegDef_t *pSPIx);
-void SPI_CloseTransmission(SPI_Handle_t *pSPIHandle);
 void SPI_CloseReception(SPI_Handle_t *pSPIHandle);
-
-/*
- * Application callback
- */
-void SPI_ApplicationEventCallback(SPI_Handle_t *pSPIHandle, uint8_t AppEv); //Ev = event
 
 #endif /* INC_STM32F767XX_SPI_DRIVER_H_ */
