@@ -23,6 +23,10 @@ The repository following the course "(MCU1) Learn bare metal driver development 
 4. Communication between STM32 and Arduino using SPI
 > The project hasn’t been created yet.
 
+5. I2C Driver APIs
+>/stm32f7xx_drivers/drivers/Inc/stm32f767xx_i2c_driver.h
+>/stm32f7xx_drivers/drivers/Src/stm32f767xx_i2c_driver.c
+
 ---
 ## Completed :
 1. GPIO Driver APIs

@@ -397,7 +397,7 @@ static void spi_txe_interrupt_handle(SPI_Handle_t *pSPIHandle)
 		pSPIHandle->pTxBuffer++;
 	}
 
-	// if length = 0
+	// if len = 0
 	if(! pSPIHandle->TxLen)
 	{
 		// if TX length =0, close the SPI transmission and inform the application that TX is over
@@ -431,7 +431,7 @@ static void spi_rxne_interrupt_handle(SPI_Handle_t *pSPIHandle)
 		pSPIHandle->pRxBuffer--;
 	}
 
-	// if length = 0
+	// if len = 0
 	if(! pSPIHandle->RxLen)
 	{
 		// reception complete, turn off the RXNEIE interrupt
