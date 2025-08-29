@@ -1,0 +1,2 @@
+../drivers/Src/stm32f767xx_i2c_driver.c:11:6:I2C_PeripheralControl	2
+../drivers/Src/stm32f767xx_i2c_driver.c:23:6:I2C_PeriClockControl	10
