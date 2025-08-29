@@ -496,3 +496,54 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64
 
 !ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2025-08-28 00:47:56.498
 !MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2025-08-28 12:16:32.875 -----------------------------------------------
+eclipse.buildId=Version 1.18.1
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_TW
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2025-08-28 12:16:38.578
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2025-08-28 12:16:38.579
+!MESSAGE Log4j2 initialized with config file D:\Udemy\MCU1\MCU1_course\MCU1\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2025-08-28 12:16:43.071
+!MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2025-08-29 12:29:20.877 -----------------------------------------------
+eclipse.buildId=Version 1.18.1
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_TW
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2025-08-29 12:29:49.651
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2025-08-29 12:29:49.652
+!MESSAGE Log4j2 initialized with config file D:\Udemy\MCU1\MCU1_course\MCU1\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2025-08-29 12:29:53.865
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.search 2 2 2025-08-29 12:59:32.861
+!MESSAGE Opened editors scope set on search page that does not support it
+
+!ENTRY org.eclipse.search 2 2 2025-08-29 12:59:33.852
+!MESSAGE Opened editors scope set on search page that does not support it
+
+!ENTRY org.eclipse.search 2 2 2025-08-29 12:59:34.214
+!MESSAGE Opened editors scope set on search page that does not support it
+
+!ENTRY org.eclipse.search 2 2 2025-08-29 12:59:34.611
+!MESSAGE Opened editors scope set on search page that does not support it
+
+!ENTRY org.eclipse.search 2 2 2025-08-29 12:59:34.681
+!MESSAGE Opened editors scope set on search page that does not support it
+
+!ENTRY org.eclipse.search 2 2 2025-08-29 12:59:34.949
+!MESSAGE Opened editors scope set on search page that does not support it
+
+!ENTRY org.eclipse.search 2 2 2025-08-29 12:59:35.003
+!MESSAGE Opened editors scope set on search page that does not support it
