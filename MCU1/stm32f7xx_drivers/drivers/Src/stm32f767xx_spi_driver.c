@@ -119,7 +119,7 @@ void SPI_Init(SPI_Handle_t *pSPIHandle)
 	tempreg |=  ( pSPIHandle->SPIConfig.SPI_CPHA << SPI_CR1_CPHA);
 
 	/* 7. configure the SPI_SSM */
-	tempreg |=  ( pSPIHandle->SPIConfig.SPI_DFF << SPI_CR1_SSM);
+	tempreg |=  ( pSPIHandle->SPIConfig.SPI_SSM << SPI_CR1_SSM);
 
 	pSPIHandle->pSPIx->CR1 = tempreg;
 
@@ -207,6 +207,34 @@ void SPI_PeripheralControl(SPI_RegDef_t *pSPIx, uint8_t EnorDi)
 		pSPIx->CR1 &= ~(1 << SPI_CR1_SPE); //disable SPI
 	}
 }
+
+void SPI_SSIConfig(SPI_RegDef_t *pSPIx, uint8_t EnorDi)
+{
+	if(EnorDi == ENABLE)
+	{
+		pSPIx->CR1 |= (1 << SPI_CR1_SSI); //enable SPI
+	}
+	else
+	{
+		pSPIx->CR1 &= ~(1 << SPI_CR1_SSI); //disable SPI
+	}
+}
+
+/*
+ * when using hardware slave management, you have to configure SSOE (for single master)
+ */
+void SPI_SSOEConfig(SPI_RegDef_t *pSPIx, uint8_t EnorDi)
+{
+	if(EnorDi == ENABLE)
+	{
+		pSPIx->CR2 |= (1 << SPI_CR2_SSOE); //enable SPOE (for single master)
+	}
+	else
+	{
+		pSPIx->CR2 &= ~(1 << SPI_CR2_SSOE); //disable SPOE (for multi-master)
+	}
+}
+
 
 void SPI_ReceiveData(SPI_RegDef_t *pSPIx, uint8_t *pRxBuffer, uint32_t Len)
 {
