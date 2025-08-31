@@ -1,6 +1,4 @@
-"./Src/007spi_txonly_arduino.o"
-"./Src/syscalls.o"
-"./Src/sysmem.o"
+"./Src/008spi_cmd_handling.o"
 "./Startup/startup_stm32f767zitx.o"
 "./drivers/Src/stm32f767xx_gpio_driver.o"
 "./drivers/Src/stm32f767xx_i2c_driver.o"

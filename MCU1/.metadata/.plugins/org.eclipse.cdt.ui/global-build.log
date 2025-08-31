@@ -1,7 +1,7 @@
-00:50:33 **** Incremental Build of configuration Debug for project stm32f7xx_drivers ****
+00:17:38 **** Incremental Build of configuration Debug for project stm32f7xx_drivers ****
 make -j16 all 
 arm-none-eabi-size  stm32f7xx_drivers.elf 
    text	   data	    bss	    dec	    hex	filename
-   3424	      0	   1568	   4992	   1380	stm32f7xx_drivers.elf
+  10068	    104	   2072	  12244	   2fd4	stm32f7xx_drivers.elf
 Finished building: default.size.stdout
  

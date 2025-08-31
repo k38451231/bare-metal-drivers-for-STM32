@@ -17,12 +17,15 @@ The repository following the course "(MCU1) Learn bare metal driver development 
 >/stm32f7xx_drivers/drivers/Inc/stm32f767xx_spi_driver.h
 >/stm32f7xx_drivers/drivers/Src/stm32f767xx_spi_driver.c
 
-3. Communication between STM32 and Arduino using SPI
->/stm32f7xx_drivers/drivers/Src/007spi_txonly_arduino.c
-
-4. I2C Driver APIs
+3. I2C Driver APIs
 >/stm32f7xx_drivers/drivers/Inc/stm32f767xx_i2c_driver.h
 >/stm32f7xx_drivers/drivers/Src/stm32f767xx_i2c_driver.c
+
+4. Sending message STM32 to Arduino using SPI (Sending only)
+>/stm32f7xx_drivers/drivers/Src/007spi_txonly_arduino.c
+
+5. Communications between STM32 and Arduino using SPI (Both sending and Receiving)
+>/stm32f7xx_drivers/drivers/Src/008spi_cmd_handling.c
 
 ---
 ## Completed :

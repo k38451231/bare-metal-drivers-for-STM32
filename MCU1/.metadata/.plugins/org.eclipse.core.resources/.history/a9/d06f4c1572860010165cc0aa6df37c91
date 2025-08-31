@@ -1,0 +1,254 @@
+/*
+ * 008spi_cmd_handling.c
+ *
+ *  Created on: Aug 31, 2025
+ *      Author: TUF
+ */
+
+#include "stm32f767xx.h"
+#include "stm32f767xx_spi_driver.h"
+#include <string.h>
+#include<stdio.h>
+
+//command codes
+#define COMMAND_LED_CTRL      0x50
+#define COMMAND_SENSOR_READ   0x51
+#define COMMAND_LED_READ      0x52
+#define COMMAND_PRINT		  0x53
+#define COMMAND_ID_READ		  0x54
+
+#define LED_ON  1
+#define LED_OFF 0
+
+//arduino analog pins
+#define ANALOG_PIN0 0
+#define ANALOG_PIN1 1
+#define ANALOG_PIN2 2
+#define ANALOG_PIN3 3
+#define ANALOG_PIN4 4
+
+//arduino led pin
+#define LED_PIN 9
+
+
+/*
+ * ALT Function mode 5 (AF5)
+ *
+ * PA4 --> SPI1_NSS
+ * PB3 --> SPI1_SCK
+ * PB4 --> SPI1_MISO
+ * PB5 --> SPI1_MOSI
+ */
+void SPI1_GPIOInits(void){
+	GPIO_Handle_t SPIPins;
+
+	SPIPins.pGPIOx = GPIOB;
+	SPIPins.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_ALTFN;
+	SPIPins.GPIO_PinConfig.GPIO_PinAltFunMode = 5;
+	SPIPins.GPIO_PinConfig.GPIO_PinOPType = GPIO_OP_TYPE_PP;
+	SPIPins.GPIO_PinConfig.GPIO_PinPuPdControl = GPIO_NO_PUPD;
+	SPIPins.GPIO_PinConfig.GPIO_PinSpeed = GPIO_SPEED_FAST;
+
+	/* SCLK */
+	SPIPins.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_3;
+	GPIO_Init(&SPIPins);
+
+	/* MOSI */
+	SPIPins.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_5;
+	GPIO_Init(&SPIPins);
+
+	/* MISO */
+	SPIPins.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_4;
+	GPIO_Init(&SPIPins);
+
+	/* NSS  */
+	SPIPins.pGPIOx = GPIOA;
+	SPIPins.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_ALTFN;
+	SPIPins.GPIO_PinConfig.GPIO_PinAltFunMode = 5;
+	SPIPins.GPIO_PinConfig.GPIO_PinOPType = GPIO_OP_TYPE_PP;
+	SPIPins.GPIO_PinConfig.GPIO_PinPuPdControl = GPIO_NO_PUPD;
+	SPIPins.GPIO_PinConfig.GPIO_PinSpeed = GPIO_SPEED_FAST;
+
+	SPIPins.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_4;
+	GPIO_Init(&SPIPins);
+
+}
+
+
+
+void SPI1_Inits(void)
+{
+	SPI_Handle_t SPI1Handle;
+
+	SPI1Handle.pSPIx = SPI1;
+	SPI1Handle.SPIConfig.SPI_BusConfig = SPI_BUS_CONFIG_FD; //FULL-duplex
+	SPI1Handle.SPIConfig.SPI_DeviceMode = SPI_DEVICE_MODE_MASTER;
+	SPI1Handle.SPIConfig.SPI_SclkSpeed = SPI_SCLK_SPEED_DIV8; // Serial clock of 2M Hz
+	SPI1Handle.SPIConfig.SPI_DFF = SPI_DFF_8BITS;
+	SPI1Handle.SPIConfig.SPI_CPOL = SPI_CPOL_LOW;
+	SPI1Handle.SPIConfig.SPI_CPHA = SPI_CPHA_LOW;
+	SPI1Handle.SPIConfig.SPI_SSM = SPI_SSM_DI; //using hardware slave management
+
+	SPI_Init(&SPI1Handle);
+}
+
+void GPIOButtonInit(){
+	GPIO_Handle_t GPIO_Btn;
+	/* USER button on PC13, Pressed -> HIGH */
+	/* don't need to care out type cause Button is input */
+	GPIO_Btn.pGPIOx = GPIOC;
+	GPIO_Btn.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_13;
+	GPIO_Btn.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_IN;
+	GPIO_Btn.GPIO_PinConfig.GPIO_PinSpeed = GPIO_SPEED_FAST;
+	GPIO_Btn.GPIO_PinConfig.GPIO_PinPuPdControl = GPIO_NO_PUPD; //btn has external pull down, don't care internal
+
+	GPIO_Init(&GPIO_Btn);
+}
+
+void delay(void)
+{
+	for(uint32_t i=0 ; i<500000/2 ; i++);
+}
+
+uint8_t SPI_VerifyResponse(uint8_t ackbyte)
+{
+	if (ackbyte == 0xF5)
+	{
+		return 1;  //ack
+	}
+		return 0;  //nack
+}
+
+int main(void){
+
+	//char user_data[] = "Hello world";
+	uint8_t dummy_write = 0xff;
+	uint8_t dummy_read;
+
+	GPIOButtonInit();
+	// this function is used to initialize the GPIO pins to behave like SPI2 pins (alternate functions)
+	SPI1_GPIOInits();
+	SPI1_Inits();
+
+	/*
+	 * enable SSOE=1 make NSS output enable
+	 * the NSS pin is automatically managed by the hardware
+	 * i.e when SPE=1, NSS will be pulled to low
+	 * when SPE=0, NSS will be pulled to high
+	 */
+	SPI_SSOEConfig(SPI1, ENABLE);
+
+	while(1)
+	{
+		while( ! GPIO_ReadFromInputPin(GPIOC, GPIO_PIN_NO_13) );
+		delay();
+
+		// Enable the SPI2 peripheral (SPE bit in SPI_CR1 register)
+		SPI_PeripheralControl(SPI1, ENABLE);
+
+		/****************************************************
+		 * 1. CMD_LED_CTRL <pin no(1)> <value(1)>
+		 ***************************************************/
+		uint8_t commandcode = COMMAND_LED_CTRL;
+		uint8_t ackbyte;
+		uint8_t args[2]; //store pin no. and value
+
+		//send command
+		SPI_SendData(SPI1, &commandcode, 1);
+		//when you send 1 byte, you also receive 1 byte
+		//do dummy read to clear RXNE flag
+		SPI_ReceiveData(SPI1, &dummy_read, 1);
+
+		//send dummy bits (1byte) to fetch the response (ACK/NACK) from the slave
+		SPI_SendData(SPI1, &dummy_write, 1);
+		SPI_ReceiveData(SPI1, &ackbyte, 1);
+
+		if(SPI_VerifyResponse(ackbyte))
+		{
+			//send arguments
+			args[0] = LED_PIN;
+			args[1] = LED_ON;
+			SPI_SendData(SPI1, args, 2);
+		}
+
+		/****************************************************
+		 * 2. CMD_SENSOR_READ < analog pin number(1) >
+		 ***************************************************/
+		while( ! GPIO_ReadFromInputPin(GPIOC, GPIO_PIN_NO_13) );
+		delay();
+
+		commandcode = COMMAND_SENSOR_READ;
+
+		SPI_SendData(SPI1, &commandcode, 1);   // send command
+		SPI_ReceiveData(SPI1, &dummy_read, 1); // clear RXNE
+
+		SPI_SendData(SPI1, &dummy_write, 1);   //send dummy bits
+		SPI_ReceiveData(SPI1, &ackbyte, 1);    //fetch the  (ACK/NACK)
+
+		if(SPI_VerifyResponse(ackbyte))
+		{
+			//send arguments
+			args[0] = ANALOG_PIN0;
+			SPI_SendData(SPI1, args, 1);
+
+			SPI_ReceiveData(SPI1, &dummy_read, 1); // clear RXNE
+
+			//insert delay so slave can ready with the data (slave does ADC conversion)
+			delay();
+
+			SPI_SendData(SPI1, &dummy_write, 1);   //send dummy
+			uint8_t analog_read;
+			SPI_ReceiveData(SPI1, &analog_read, 1);    //fetch the analog_read
+		}
+
+		/****************************************************
+		 * 3. CMD_LED_READ < pin number(1) >
+		 ***************************************************/
+		while( ! GPIO_ReadFromInputPin(GPIOC, GPIO_PIN_NO_13) );
+		delay();
+
+		commandcode = COMMAND_LED_READ;
+
+		SPI_SendData(SPI1, &commandcode, 1);   // send command
+		SPI_ReceiveData(SPI1, &dummy_read, 1); // clear RXNE
+
+		SPI_SendData(SPI1, &dummy_write, 1);   //send dummy bits
+		SPI_ReceiveData(SPI1, &ackbyte, 1);    //fetch the  (ACK/NACK)
+
+		if(SPI_VerifyResponse(ackbyte))
+		{
+			//send arguments
+			args[0] = LED_PIN;
+			SPI_SendData(SPI1, args, 1);
+
+			SPI_ReceiveData(SPI1, &dummy_read, 1); // clear RXNE
+
+			//insert delay so slave can ready with the data (slave does ADC conversion)
+			delay();
+
+			SPI_SendData(SPI1, &dummy_write, 1);   //send dummy
+			uint8_t led_status;
+			SPI_ReceiveData(SPI1, &led_status, 1);    //fetch the analog_read
+			printf("COMMAND_LED_READ %d\n", led_status);
+		}
+
+
+		/****************************************************
+		 * 4. CMD_PRINT <Len> < message >
+		 ***************************************************/
+		/****************************************************
+		 * 5. CMD_ID_READ
+		 ***************************************************/
+
+
+
+		/*
+		 * before closing, first confirm that SPI is not busy
+		 * check SPI_SR, busy flag
+		 */
+		while(SPI_GetFlagStatus(SPI1, SPI_BSY_FLAG));
+		SPI_PeripheralControl(SPI1, DISABLE);
+	}
+
+	return 0;
+}
