@@ -226,6 +226,23 @@ typedef struct
 	__vo uint32_t TXDR;
 }I2C_RegDef_t;
 
+// peripheral register definition structure for USART (refer to register map)
+typedef struct
+{
+	__vo uint32_t CR1;
+	__vo uint32_t CR2;
+	__vo uint32_t CR3;
+	__vo uint32_t BRR;
+	__vo uint32_t GTPR;
+	__vo uint32_t RTOR;
+	__vo uint32_t RQR;
+	__vo uint32_t ISR;
+	__vo uint32_t ICR;
+	__vo uint32_t RDR;
+	__vo uint32_t TDR;
+
+}USART_RegDef_t;
+
 /*
  * Peripheral definitions macros (peripheral base address type_casted to xxx_RegDef_t)
  */
@@ -258,6 +275,16 @@ typedef struct
 #define I2C2 ((I2C_RegDef_t*) I2C2_BASEADDR)
 #define I2C3 ((I2C_RegDef_t*) I2C3_BASEADDR)
 #define I2C4 ((I2C_RegDef_t*) I2C4_BASEADDR)
+
+#define USART1 ((USART_RegDef_t*) USART1_BASEADDR)
+#define USART2 ((USART_RegDef_t*) USART2_BASEADDR)
+#define USART3 ((USART_RegDef_t*) USART3_BASEADDR)
+#define USART6 ((USART_RegDef_t*) USART6_BASEADDR)
+
+#define UART4 ((USART_RegDef_t*) UART4_BASEADDR)
+#define UART5 ((USART_RegDef_t*) UART5_BASEADDR)
+#define UART7 ((USART_RegDef_t*) UART7_BASEADDR)
+#define UART8 ((USART_RegDef_t*) UART8_BASEADDR)
 
 /*
  * Clock "Enable" Macros for GPIOx peripherals
@@ -297,6 +324,14 @@ typedef struct
  */
 #define USART1_PCLK_EN() (RCC->APB2ENR |= (1<<4))
 #define USART6_PCLK_EN() (RCC->APB2ENR |= (1<<5))
+
+#define USART2_PCLK_EN() (RCC->APB1ENR |= (1<<17))
+#define USART3_PCLK_EN() (RCC->APB1ENR |= (1<<18))
+
+#define UART4_PCLK_EN() (RCC->APB1ENR |= (1<<19))
+#define UART5_PCLK_EN() (RCC->APB1ENR |= (1<<20))
+#define UART7_PCLK_EN() (RCC->APB1ENR |= (1<<30))
+#define UART8_PCLK_EN() (RCC->APB1ENR |= (1<<31))
 
 /*
  * Clock enable Macros for SYSCFG peripherals
@@ -350,6 +385,13 @@ typedef struct
  */
 #define USART1_PCLK_DI() (RCC->APB2ENR &= ~(1<<4))
 #define USART6_PCLK_DI() (RCC->APB2ENR &= ~(1<<5))
+#define USART2_PCLK_DI() (RCC->APB1ENR &= ~(1<<17))
+#define USART3_PCLK_DI() (RCC->APB1ENR &= ~(1<<18))
+
+#define UART4_PCLK_DI() (RCC->APB1ENR &= ~(1<<19))
+#define UART5_PCLK_DI() (RCC->APB1ENR &= ~(1<<20))
+#define UART7_PCLK_DI() (RCC->APB1ENR &= ~(1<<30))
+#define UART8_PCLK_DI() (RCC->APB1ENR &= ~(1<<31))
 
 /*
  * Clock Disable Macros for SYSCFG peripherals
@@ -400,6 +442,21 @@ typedef struct
 #define SPI4_REG_RESET()	  do{ (RCC->APB2RSTR |= (1<<13)); (RCC->APB2RSTR &= ~(1<<13)); }while(0)
 #define SPI5_REG_RESET()	  do{ (RCC->APB2RSTR |= (1<<20)); (RCC->APB2RSTR &= ~(1<<20)); }while(0)
 #define SPI6_REG_RESET()	  do{ (RCC->APB2RSTR |= (1<<21)); (RCC->APB2RSTR &= ~(1<<21)); }while(0)
+
+
+/*
+ * Macros to reset USARTx peripherals
+ */
+#define USART1_REG_RESET()	  do{ (RCC->APB2RSTR |= (1<<4)); (RCC->APB2RSTR &= ~(1<<4)); }while(0)
+#define USART6_REG_RESET()	  do{ (RCC->APB2RSTR |= (1<<5)); (RCC->APB2RSTR &= ~(1<<5)); }while(0)
+
+#define USART2_REG_RESET()	  do{ (RCC->APB1RSTR |= (1<<17)); (RCC->APB1RSTR &= ~(1<<17)); }while(0)
+#define USART3_REG_RESET()	  do{ (RCC->APB1RSTR |= (1<<18)); (RCC->APB1RSTR &= ~(1<<18)); }while(0)
+#define UART4_REG_RESET()	  do{ (RCC->APB1RSTR |= (1<<19)); (RCC->APB1RSTR &= ~(1<<19)); }while(0)
+#define UART5_REG_RESET()	  do{ (RCC->APB1RSTR |= (1<<20)); (RCC->APB1RSTR &= ~(1<<20)); }while(0)
+#define UART7_REG_RESET()	  do{ (RCC->APB1RSTR |= (1<<30)); (RCC->APB1RSTR &= ~(1<<30)); }while(0)
+#define UART8_REG_RESET()	  do{ (RCC->APB1RSTR |= (1<<31)); (RCC->APB1RSTR &= ~(1<<31)); }while(0)
+
 
 /*
  * some generic macros
@@ -567,5 +624,6 @@ typedef struct
 #include "stm32f767xx_gpio_driver.h"
 #include "stm32f767xx_spi_driver.h"
 #include "stm32f767xx_i2c_driver.h"
+#include "stm32f767xx_usart_driver.h"
 
 #endif /* INC_STM32F767XX_H_ */

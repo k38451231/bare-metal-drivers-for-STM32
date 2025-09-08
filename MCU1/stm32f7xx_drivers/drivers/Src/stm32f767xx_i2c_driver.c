@@ -8,6 +8,62 @@
 #include "stm32f767xx.h"
 #include "stm32f767xx_i2c_driver.h"
 
+uint32_t RCCGetPLLOutputClock(void){
+	return 0;
+}
+
+uint32_t AHB_PreScaler[8] = {2, 4, 8, 16, 64, 128, 256, 512};
+uint32_t APB1_PreScaler[4] = {2, 4, 8, 16};
+
+uint32_t RCC_GetPCLK1Value(void){
+	uint32_t pclk1, SystemCLk;
+	uint8_t clksrc, temp, ahbp, apb1p;
+
+	//check the clock source
+	clksrc = ((RCC->CFGR >> 2) & 0x3);
+
+	if(clksrc == 0){
+		//HSI
+		SystemCLk = 16000000;
+	}
+	else if(clksrc == 1){
+		//HSE
+		SystemCLk = 8000000;
+	}
+	else if(clksrc == 2){
+		//PLL
+		SystemCLk = RCCGetPLLOutputClock();
+	}
+
+	//Read HPRE (AHB pre-scaler)
+	temp = ((RCC->CFGR >> 4) & 0xF) ;
+	if(temp < 8)
+	{
+		ahbp = 1;
+	}
+	else
+	{
+		ahbp = AHB_PreScaler[temp - 8];
+	}
+
+	//Read PPRE1 (APB1 pre-scaler)
+	temp = ((RCC->CFGR >> 10) & 0x7) ;
+	if(temp < 4)
+	{
+		apb1p = 1;
+	}
+	else
+	{
+		apb1p = APB1_PreScaler[temp - 4];
+	}
+
+	// calculate clock rate
+	pclk1 = (SystemCLk / ahbp) / apb1p;
+
+	return pclk1;
+}
+
+
 void I2C_PeripheralControl(I2C_RegDef_t *pI2Cx, uint8_t EnorDi){
 	//CR1_PE
 	if(EnorDi == ENABLE)
