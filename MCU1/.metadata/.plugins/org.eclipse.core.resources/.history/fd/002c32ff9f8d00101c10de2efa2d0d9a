@@ -684,29 +684,7 @@ typedef struct
 #define USART_CR3_UCESM 23
 #define USART_CR3_TCBGTIE 24
 
-#define USART_ISR_PE 0
-#define USART_ISR_FE 1
-#define USART_ISR_NF 2
-#define USART_ISR_ORE 3
-#define USART_ISR_IDLE 4
-#define USART_ISR_RXNE 5
-#define USART_ISR_TC 6
-#define USART_ISR_TXE 7
-#define USART_ISR_LBDF 8
-#define USART_ISR_CTSIF 9
-#define USART_ISR_CTS 10
-#define USART_ISR_RTOF 11
-#define USART_ISR_EOBF 12
-#define USART_ISR_ABRE 14
-#define USART_ISR_ABRF 15
-#define USART_ISR_BUSY 16
-#define USART_ISR_CMF 17
-#define USART_ISR_SBKF 18
-#define USART_ISR_RWU 19
-#define USART_ISR_WUF 20
-#define USART_ISR_TEACK 21
-#define USART_ISR_REACK 22
-#define USART_ISR_TCBGT 25
+
 
 
 

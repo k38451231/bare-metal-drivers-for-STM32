@@ -41,7 +41,7 @@ typedef struct
  *Possible options for USART_Baud
  */
 #define USART_STD_BAUD_1200					1200
-#define USART_STD_BAUD_2400					2400
+#define USART_STD_BAUD_2400					400
 #define USART_STD_BAUD_9600					9600
 #define USART_STD_BAUD_19200 				19200
 #define USART_STD_BAUD_38400 				38400
@@ -96,7 +96,7 @@ typedef struct
 /*
  * Peripheral Clock setup
  */
-void USART_PeriClockControl(USART_RegDef_t *pUSARTx, uint8_t EnorDi);///////////////////////////////////
+void USART_PeriClockControl(USART_RegDef_t *pUSARTx, uint8_t EnorDi);
 
 /*
  * Init and De-init
@@ -116,16 +116,16 @@ uint8_t USART_ReceiveDataIT(USART_Handle_t *pUSARTHandle, uint8_t *pRxBuffer, ui
 /*
  * IRQ Configuration and ISR handling
  */
-void USART_IRQInterruptConfig(uint8_t IRQNumber, uint8_t EnorDi);/////////////////////////////////
-void USART_IRQPriorityConfig(uint8_t IRQNumber, uint32_t IRQPriority);/////////////////////////////
+void USART_IRQInterruptConfig(uint8_t IRQNumber, uint8_t EnorDi);
+void USART_IRQPriorityConfig(uint8_t IRQNumber, uint32_t IRQPriority);
 void USART_IRQHandling(USART_Handle_t *pHandle);
 
 /*
  * Other Peripheral Control APIs
  */
-void USART_PeripheralControl(USART_RegDef_t *pUSARTx, uint8_t EnOrDi);////////////////////////
-uint8_t USART_GetFlagStatus(USART_RegDef_t *pUSARTx , uint32_t FlagName);////////////////////
-void USART_ClearFlag(USART_RegDef_t *pUSARTx, uint16_t StatusFlagName);/////////////////////////
+void USART_PeripheralControl(USART_RegDef_t *pUSARTx, uint8_t EnOrDi);
+uint8_t USART_GetFlagStatus(USART_RegDef_t *pUSARTx , uint32_t FlagName);
+void USART_ClearFlag(USART_RegDef_t *pUSARTx, uint16_t StatusFlagName);
 
 /*
  * Application callback
