@@ -129,28 +129,5 @@ void USART_IRQPriorityConfig(uint8_t IRQNumber, uint32_t IRQPriority)
 	*(NVIC_PR_BASE_ADDR + iprx ) |= (IRQPriority << shift_amount);
 }
 
-void USART_PeripheralControl(USART_RegDef_t *pUSARTx, uint8_t EnorDi)
-{
-	if(EnorDi == ENABLE)
-	{
-		pUSARTx->CR1 |= (1 << USART_CR1_UE); //enable SPI
-	}
-	else
-	{
-		pUSARTx->CR1 &= ~(1 << USART_CR1_UE); //disable SPI
 
-}
-uint8_t USART_GetFlagStatus(USART_RegDef_t *pUSARTx , uint32_t FlagName)
-{
- 	if(pUSARTx->ISR & FlagName) // flag name actually gives masking info, see spi_driver.h @SPI_FLAG
-	{
-		return FLAG_SET;
-	}
-	return FLAG_RESET; // reset = 0
-}
-
-}
-void USART_ClearFlag(USART_RegDef_t *pUSARTx, uint16_t StatusFlagName){
-	pUSARTx->ISR &= ~( StatusFlagName);
-}
 

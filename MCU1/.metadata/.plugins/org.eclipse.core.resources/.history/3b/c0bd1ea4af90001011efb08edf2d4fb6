@@ -89,29 +89,29 @@ typedef struct
 /*
  * @USART_FLAG
  */
-#define USART_PE_FLAG		(1 << USART_ISR_PE  	)
-#define USART_FE_FLAG		(1 << USART_ISR_FE  	)
-#define USART_NF_FLAG		(1 << USART_ISR_NF  	)
-#define USART_ORE_FLAG		(1 << USART_ISR_ORE  	)
-#define USART_IDLE_FLAG		(1 << USART_ISR_IDLE  	)
-#define USART_RXNE_FLAG		(1 << USART_ISR_RXNE  	)
-#define USART_TC_FLAG		(1 << USART_ISR_TC  	)
-#define USART_TXE_FLAG		(1 << USART_ISR_TXE  	)
-#define USART_LBDF_FLAG		(1 << USART_ISR_LBDF  	)
-#define USART_CTSIF_FLAG	(1 << USART_ISR_CTSIF  	)
-#define USART_CTS_FLAG		(1 << USART_ISR_CTSIF  	)
-#define USART_RTOF_FLAG		(1 << USART_ISR_RTOF  	)
-#define USART_EOBF_FLAG		(1 << USART_ISR_EOBF  	)
-#define USART_ABRE_FLAG		(1 << USART_ISR_ABRE  	)
-#define USART_ABRF_FLAG		(1 << USART_ISR_ABRF  	)
-#define USART_BUSY_FLAG		(1 << USART_ISR_BUSY  	)
-#define USART_CMF_FLAG		(1 << USART_ISR_CMF  	)
-#define USART_SBKF_FLAG		(1 << USART_ISR_SBKF  	)
-#define USART_RWU_FLAG		(1 << USART_ISR_RWU  	)
-#define USART_WUF_FLAG		(1 << USART_ISR_WUF  	)
-#define USART_TEACK_FLAG	(1 << USART_ISR_TEACK  	)
-#define USART_REACK_FLAG	(1 << USART_ISR_REACK  	)
-#define USART_TCBGT_FLAG	(1 << USART_ISR_TCBGT  	)
+#define USART_ISR_PE  (1 << SPI_SR_FTLVL  )
+#define USART_ISR_FE
+#define USART_ISR_NF
+#define USART_ISR_ORE
+#define USART_ISR_IDLE
+#define USART_ISR_RXNE
+#define USART_ISR_TC
+#define USART_ISR_TXE
+#define USART_ISR_LBDF
+#define USART_ISR_CTSIF
+#define USART_ISR_CTS
+#define USART_ISR_RTOF
+#define USART_ISR_EOBF
+#define USART_ISR_ABRE
+#define USART_ISR_ABRF
+#define USART_ISR_BUSY
+#define USART_ISR_CMF
+#define USART_ISR_SBKF
+#define USART_ISR_RWU
+#define USART_ISR_WUF
+#define USART_ISR_TEACK
+#define USART_ISR_REACK
+#define USART_ISR_TCBGT
 
 
 /******************************************************************************************

@@ -332,7 +332,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x190 ./drivers/Src/stm32f767xx_gpio_driver.o
  .debug_macro   0x00000000      0xafb ./drivers/Src/stm32f767xx_gpio_driver.o
  .debug_macro   0x00000000       0x52 ./drivers/Src/stm32f767xx_gpio_driver.o
- .debug_macro   0x00000000       0xb2 ./drivers/Src/stm32f767xx_gpio_driver.o
+ .debug_macro   0x00000000      0x13c ./drivers/Src/stm32f767xx_gpio_driver.o
  .debug_macro   0x00000000       0xc4 ./drivers/Src/stm32f767xx_gpio_driver.o
  .group         0x00000000        0xc ./drivers/Src/stm32f767xx_i2c_driver.o
  .group         0x00000000        0xc ./drivers/Src/stm32f767xx_i2c_driver.o
@@ -381,9 +381,9 @@ Discarded input sections
  .debug_macro   0x00000000       0xc4 ./drivers/Src/stm32f767xx_i2c_driver.o
  .debug_macro   0x00000000      0x106 ./drivers/Src/stm32f767xx_i2c_driver.o
  .debug_macro   0x00000000       0x52 ./drivers/Src/stm32f767xx_i2c_driver.o
- .debug_macro   0x00000000       0xb2 ./drivers/Src/stm32f767xx_i2c_driver.o
+ .debug_macro   0x00000000      0x13c ./drivers/Src/stm32f767xx_i2c_driver.o
  .debug_line    0x00000000      0x5ff ./drivers/Src/stm32f767xx_i2c_driver.o
- .debug_str     0x00000000     0x7d3e ./drivers/Src/stm32f767xx_i2c_driver.o
+ .debug_str     0x00000000     0x80ad ./drivers/Src/stm32f767xx_i2c_driver.o
  .comment       0x00000000       0x44 ./drivers/Src/stm32f767xx_i2c_driver.o
  .debug_frame   0x00000000       0xa4 ./drivers/Src/stm32f767xx_i2c_driver.o
  .ARM.attributes
@@ -446,7 +446,7 @@ Discarded input sections
  .debug_macro   0x00000000       0xc4 ./drivers/Src/stm32f767xx_spi_driver.o
  .debug_macro   0x00000000      0x106 ./drivers/Src/stm32f767xx_spi_driver.o
  .debug_macro   0x00000000       0x52 ./drivers/Src/stm32f767xx_spi_driver.o
- .debug_macro   0x00000000       0xb2 ./drivers/Src/stm32f767xx_spi_driver.o
+ .debug_macro   0x00000000      0x13c ./drivers/Src/stm32f767xx_spi_driver.o
  .group         0x00000000        0xc ./drivers/Src/stm32f767xx_usart_driver.o
  .group         0x00000000        0xc ./drivers/Src/stm32f767xx_usart_driver.o
  .group         0x00000000        0xc ./drivers/Src/stm32f767xx_usart_driver.o
@@ -463,10 +463,24 @@ Discarded input sections
  .text          0x00000000        0x0 ./drivers/Src/stm32f767xx_usart_driver.o
  .data          0x00000000        0x0 ./drivers/Src/stm32f767xx_usart_driver.o
  .bss           0x00000000        0x0 ./drivers/Src/stm32f767xx_usart_driver.o
- .debug_info    0x00000000       0x70 ./drivers/Src/stm32f767xx_usart_driver.o
- .debug_abbrev  0x00000000       0x28 ./drivers/Src/stm32f767xx_usart_driver.o
+ .text.USART_PeriClockControl
+                0x00000000       0xe0 ./drivers/Src/stm32f767xx_usart_driver.o
+ .text.USART_DeInit
+                0x00000000       0xac ./drivers/Src/stm32f767xx_usart_driver.o
+ .text.USART_IRQInterruptConfig
+                0x00000000      0x108 ./drivers/Src/stm32f767xx_usart_driver.o
+ .text.USART_IRQPriorityConfig
+                0x00000000       0x50 ./drivers/Src/stm32f767xx_usart_driver.o
+ .text.USART_PeripheralControl
+                0x00000000       0x3c ./drivers/Src/stm32f767xx_usart_driver.o
+ .text.USART_ClearFlag
+                0x00000000       0x24 ./drivers/Src/stm32f767xx_usart_driver.o
+ .debug_info    0x00000000      0x456 ./drivers/Src/stm32f767xx_usart_driver.o
+ .debug_abbrev  0x00000000       0xf7 ./drivers/Src/stm32f767xx_usart_driver.o
  .debug_aranges
-                0x00000000       0x18 ./drivers/Src/stm32f767xx_usart_driver.o
+                0x00000000       0x48 ./drivers/Src/stm32f767xx_usart_driver.o
+ .debug_rnglists
+                0x00000000       0x34 ./drivers/Src/stm32f767xx_usart_driver.o
  .debug_macro   0x00000000       0xb1 ./drivers/Src/stm32f767xx_usart_driver.o
  .debug_macro   0x00000000      0xad8 ./drivers/Src/stm32f767xx_usart_driver.o
  .debug_macro   0x00000000       0x22 ./drivers/Src/stm32f767xx_usart_driver.o
@@ -480,10 +494,11 @@ Discarded input sections
  .debug_macro   0x00000000       0xc4 ./drivers/Src/stm32f767xx_usart_driver.o
  .debug_macro   0x00000000      0x106 ./drivers/Src/stm32f767xx_usart_driver.o
  .debug_macro   0x00000000       0x52 ./drivers/Src/stm32f767xx_usart_driver.o
- .debug_macro   0x00000000       0xb2 ./drivers/Src/stm32f767xx_usart_driver.o
- .debug_line    0x00000000      0x4d6 ./drivers/Src/stm32f767xx_usart_driver.o
- .debug_str     0x00000000     0x7b33 ./drivers/Src/stm32f767xx_usart_driver.o
+ .debug_macro   0x00000000      0x13c ./drivers/Src/stm32f767xx_usart_driver.o
+ .debug_line    0x00000000      0x6ba ./drivers/Src/stm32f767xx_usart_driver.o
+ .debug_str     0x00000000     0x80e6 ./drivers/Src/stm32f767xx_usart_driver.o
  .comment       0x00000000       0x44 ./drivers/Src/stm32f767xx_usart_driver.o
+ .debug_frame   0x00000000      0x100 ./drivers/Src/stm32f767xx_usart_driver.o
  .ARM.attributes
                 0x00000000       0x2e ./drivers/Src/stm32f767xx_usart_driver.o
  .text          0x00000000        0x0 C:/ST/STM32CubeIDE_1.18.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc_nano.a(libc_a-exit.o)
@@ -1123,7 +1138,7 @@ LOAD C:/ST/STM32CubeIDE_1.18.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_rnglists
                 0x00000098       0x92 ./drivers/Src/stm32f767xx_spi_driver.o
 
-.debug_macro    0x00000000     0x2a68
+.debug_macro    0x00000000     0x2af2
  .debug_macro   0x00000000      0x17f ./Src/007spi_txonly_arduino.o
  .debug_macro   0x0000017f      0xad8 ./Src/007spi_txonly_arduino.o
  .debug_macro   0x00000c57       0x22 ./Src/007spi_txonly_arduino.o
@@ -1137,26 +1152,26 @@ LOAD C:/ST/STM32CubeIDE_1.18.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_macro   0x00001d2f       0xc4 ./Src/007spi_txonly_arduino.o
  .debug_macro   0x00001df3      0x106 ./Src/007spi_txonly_arduino.o
  .debug_macro   0x00001ef9       0x52 ./Src/007spi_txonly_arduino.o
- .debug_macro   0x00001f4b       0xb2 ./Src/007spi_txonly_arduino.o
- .debug_macro   0x00001ffd       0x61 ./Src/007spi_txonly_arduino.o
- .debug_macro   0x0000205e       0x24 ./Src/007spi_txonly_arduino.o
- .debug_macro   0x00002082       0x43 ./Src/007spi_txonly_arduino.o
- .debug_macro   0x000020c5       0x34 ./Src/007spi_txonly_arduino.o
- .debug_macro   0x000020f9      0x370 ./Src/007spi_txonly_arduino.o
- .debug_macro   0x00002469       0x16 ./Src/007spi_txonly_arduino.o
- .debug_macro   0x0000247f       0x4a ./Src/007spi_txonly_arduino.o
- .debug_macro   0x000024c9       0x34 ./Src/007spi_txonly_arduino.o
- .debug_macro   0x000024fd       0x10 ./Src/007spi_txonly_arduino.o
- .debug_macro   0x0000250d       0x58 ./Src/007spi_txonly_arduino.o
- .debug_macro   0x00002565       0x8e ./Src/007spi_txonly_arduino.o
- .debug_macro   0x000025f3       0x1c ./Src/007spi_txonly_arduino.o
- .debug_macro   0x0000260f      0x185 ./Src/007spi_txonly_arduino.o
- .debug_macro   0x00002794       0x10 ./Src/007spi_txonly_arduino.o
- .debug_macro   0x000027a4       0x3c ./Src/007spi_txonly_arduino.o
- .debug_macro   0x000027e0       0x20 ./Src/007spi_txonly_arduino.o
- .debug_macro   0x00002800       0xb7 ./drivers/Src/stm32f767xx_gpio_driver.o
- .debug_macro   0x000028b7      0x100 ./drivers/Src/stm32f767xx_gpio_driver.o
- .debug_macro   0x000029b7       0xb1 ./drivers/Src/stm32f767xx_spi_driver.o
+ .debug_macro   0x00001f4b      0x13c ./Src/007spi_txonly_arduino.o
+ .debug_macro   0x00002087       0x61 ./Src/007spi_txonly_arduino.o
+ .debug_macro   0x000020e8       0x24 ./Src/007spi_txonly_arduino.o
+ .debug_macro   0x0000210c       0x43 ./Src/007spi_txonly_arduino.o
+ .debug_macro   0x0000214f       0x34 ./Src/007spi_txonly_arduino.o
+ .debug_macro   0x00002183      0x370 ./Src/007spi_txonly_arduino.o
+ .debug_macro   0x000024f3       0x16 ./Src/007spi_txonly_arduino.o
+ .debug_macro   0x00002509       0x4a ./Src/007spi_txonly_arduino.o
+ .debug_macro   0x00002553       0x34 ./Src/007spi_txonly_arduino.o
+ .debug_macro   0x00002587       0x10 ./Src/007spi_txonly_arduino.o
+ .debug_macro   0x00002597       0x58 ./Src/007spi_txonly_arduino.o
+ .debug_macro   0x000025ef       0x8e ./Src/007spi_txonly_arduino.o
+ .debug_macro   0x0000267d       0x1c ./Src/007spi_txonly_arduino.o
+ .debug_macro   0x00002699      0x185 ./Src/007spi_txonly_arduino.o
+ .debug_macro   0x0000281e       0x10 ./Src/007spi_txonly_arduino.o
+ .debug_macro   0x0000282e       0x3c ./Src/007spi_txonly_arduino.o
+ .debug_macro   0x0000286a       0x20 ./Src/007spi_txonly_arduino.o
+ .debug_macro   0x0000288a       0xb7 ./drivers/Src/stm32f767xx_gpio_driver.o
+ .debug_macro   0x00002941      0x100 ./drivers/Src/stm32f767xx_gpio_driver.o
+ .debug_macro   0x00002a41       0xb1 ./drivers/Src/stm32f767xx_spi_driver.o
 
 .debug_line     0x00000000     0x1d97
  .debug_line    0x00000000      0x74c ./Src/007spi_txonly_arduino.o
@@ -1164,12 +1179,12 @@ LOAD C:/ST/STM32CubeIDE_1.18.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_line    0x000007c7      0xaff ./drivers/Src/stm32f767xx_gpio_driver.o
  .debug_line    0x000012c6      0xad1 ./drivers/Src/stm32f767xx_spi_driver.o
 
-.debug_str      0x00000000     0xb23b
- .debug_str     0x00000000     0xb23b ./Src/007spi_txonly_arduino.o
-                               0xafd2 (size before relaxing)
- .debug_str     0x0000b23b       0x76 ./Startup/startup_stm32f767zitx.o
- .debug_str     0x0000b23b     0x7edb ./drivers/Src/stm32f767xx_gpio_driver.o
- .debug_str     0x0000b23b     0x7f53 ./drivers/Src/stm32f767xx_spi_driver.o
+.debug_str      0x00000000     0xb5aa
+ .debug_str     0x00000000     0xb5aa ./Src/007spi_txonly_arduino.o
+                               0xb341 (size before relaxing)
+ .debug_str     0x0000b5aa       0x76 ./Startup/startup_stm32f767zitx.o
+ .debug_str     0x0000b5aa     0x824a ./drivers/Src/stm32f767xx_gpio_driver.o
+ .debug_str     0x0000b5aa     0x82c2 ./drivers/Src/stm32f767xx_spi_driver.o
 
 .comment        0x00000000       0x43
  .comment       0x00000000       0x43 ./Src/007spi_txonly_arduino.o

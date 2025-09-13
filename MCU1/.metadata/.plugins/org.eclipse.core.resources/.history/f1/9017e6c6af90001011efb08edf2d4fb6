@@ -129,7 +129,7 @@ void USART_IRQPriorityConfig(uint8_t IRQNumber, uint32_t IRQPriority)
 	*(NVIC_PR_BASE_ADDR + iprx ) |= (IRQPriority << shift_amount);
 }
 
-void USART_PeripheralControl(USART_RegDef_t *pUSARTx, uint8_t EnorDi)
+void USART_PeripheralControl(USART_RegDef_t *pUSARTx, uint8_t EnOrDi)
 {
 	if(EnorDi == ENABLE)
 	{
@@ -150,7 +150,5 @@ uint8_t USART_GetFlagStatus(USART_RegDef_t *pUSARTx , uint32_t FlagName)
 }
 
 }
-void USART_ClearFlag(USART_RegDef_t *pUSARTx, uint16_t StatusFlagName){
-	pUSARTx->ISR &= ~( StatusFlagName);
-}
+void USART_ClearFlag(USART_RegDef_t *pUSARTx, uint16_t StatusFlagName);/////////////////////////
 
