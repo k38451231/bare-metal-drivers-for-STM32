@@ -64,21 +64,19 @@ void USART_Init(USART_Handle_t *pUSARTHandle)
 /******************************** Configuration of CR1******************************************/
 
 	//Implement the code to enable the Clock for given USART peripheral
-	USART_PeriClockControl(pUSARTHandle->pUSARTx, ENABLE);
+	 TODO
 
 	//Enable USART Tx and Rx engines according to the USART_Mode configuration item
 	if ( pUSARTHandle->USART_Config.USART_Mode == USART_MODE_ONLY_RX)
 	{
 		//Implement the code to enable the Receiver bit field
 		tempreg|= (1 << USART_CR1_RE);
-	}
-	else if (pUSARTHandle->USART_Config.USART_Mode == USART_MODE_ONLY_TX)
+	}else if (pUSARTHandle->USART_Config.USART_Mode == USART_MODE_ONLY_TX)
 	{
 		//Implement the code to enable the Transmitter bit field
 		tempreg |= ( 1 << USART_CR1_TE );
 
-	}
-	else if (pUSARTHandle->USART_Config.USART_Mode == USART_MODE_TXRX)
+	}else if (pUSARTHandle->USART_Config.USART_Mode == USART_MODE_TXRX)
 	{
 		//Implement the code to enable the both Transmitter and Receiver bit fields
 		tempreg |= ( ( 1 << USART_CR1_TE) | ( 1 << USART_CR1_RE) );
@@ -128,28 +126,27 @@ void USART_Init(USART_Handle_t *pUSARTHandle)
 	if ( pUSARTHandle->USART_Config.USART_HWFlowControl == USART_HW_FLOW_CTRL_CTS)
 	{
 		//Implement the code to enable CTS flow control
-		tempreg |= ( 1 << USART_CR3_CTSE);
+		tempreg |= ( 1 << TODO);
 
 
 	}else if (pUSARTHandle->USART_Config.USART_HWFlowControl == USART_HW_FLOW_CTRL_RTS)
 	{
 		//Implement the code to enable RTS flow control
-		tempreg |= ( 1 << USART_CR3_RTSE);
+		tempreg |= TODO
 
 	}else if (pUSARTHandle->USART_Config.USART_HWFlowControl == USART_HW_FLOW_CTRL_CTS_RTS)
 	{
 		//Implement the code to enable both CTS and RTS Flow control
-		tempreg |= ( 1 << USART_CR3_CTSE);
-		tempreg |= ( 1 << USART_CR3_RTSE);
+		TODO
 	}
 
 
-	pUSARTHandle->pUSARTx->CR3 = tempreg;
+	pUSARTHandle->pUSARTx->TODO = tempreg;
 
 /******************************** Configuration of BRR(Baudrate register)******************************************/
 
 	//Implement the code to configure the baud rate
-
+	//We will cover this in the lecture. No action required here
 
 }
 

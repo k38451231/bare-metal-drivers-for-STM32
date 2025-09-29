@@ -68,6 +68,8 @@ typedef struct
  */
 #define USART_WORDLEN_8BITS  0
 #define USART_WORDLEN_9BITS  1
+#define USART_WORDLEN_7BITS  2
+
 
 /*
  *@USART_NoOfStopBits
