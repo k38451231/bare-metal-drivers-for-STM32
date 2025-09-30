@@ -1,7 +1,81 @@
-12:26:24 **** Incremental Build of configuration Debug for project stm32f7xx_drivers ****
+01:37:22 **** Clean-only build of configuration Debug for project stm32f7xx_drivers ****
+make -j16 clean 
+rm -rf ./drivers/Src/stm32f767xx_gpio_driver.cyclo ./drivers/Src/stm32f767xx_gpio_driver.d ./drivers/Src/stm32f767xx_gpio_driver.o ./drivers/Src/stm32f767xx_gpio_driver.su ./drivers/Src/stm32f767xx_i2c_driver.cyclo ./drivers/Src/stm32f767xx_i2c_driver.d ./drivers/Src/stm32f767xx_i2c_driver.o ./drivers/Src/stm32f767xx_i2c_driver.su ./drivers/Src/stm32f767xx_spi_driver.cyclo ./drivers/Src/stm32f767xx_spi_driver.d ./drivers/Src/stm32f767xx_spi_driver.o ./drivers/Src/stm32f767xx_spi_driver.su ./drivers/Src/stm32f767xx_usart_driver.cyclo ./drivers/Src/stm32f767xx_usart_driver.d ./drivers/Src/stm32f767xx_usart_driver.o ./drivers/Src/stm32f767xx_usart_driver.su
+rm -rf ./Startup/startup_stm32f767zitx.d ./Startup/startup_stm32f767zitx.o
+rm -rf ./Src/007spi_txonly_arduino.cyclo ./Src/007spi_txonly_arduino.d ./Src/007spi_txonly_arduino.o ./Src/007spi_txonly_arduino.su ./Src/syscalls.cyclo ./Src/syscalls.d ./Src/syscalls.o ./Src/syscalls.su ./Src/sysmem.cyclo ./Src/sysmem.d ./Src/sysmem.o ./Src/sysmem.su
+rm -rf default.size.stdout stm32f7xx_drivers.elf stm32f7xx_drivers.list stm32f7xx_drivers.map
+ 
+01:37:23 **** Incremental Build of configuration Debug for project stm32f7xx_drivers ****
 make -j16 all 
+arm-none-eabi-gcc "../drivers/Src/stm32f767xx_gpio_driver.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DSTM32 -DNUCLEO_F767ZI -DSTM32F7 -DSTM32F767ZITx -c -I"D:/Udemy/MCU1/MCU1_course/MCU1/stm32f7xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"drivers/Src/stm32f767xx_gpio_driver.d" -MT"drivers/Src/stm32f767xx_gpio_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f767xx_gpio_driver.o"
+arm-none-eabi-gcc "../drivers/Src/stm32f767xx_i2c_driver.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DSTM32 -DNUCLEO_F767ZI -DSTM32F7 -DSTM32F767ZITx -c -I"D:/Udemy/MCU1/MCU1_course/MCU1/stm32f7xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"drivers/Src/stm32f767xx_i2c_driver.d" -MT"drivers/Src/stm32f767xx_i2c_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f767xx_i2c_driver.o"
+arm-none-eabi-gcc "../drivers/Src/stm32f767xx_spi_driver.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DSTM32 -DNUCLEO_F767ZI -DSTM32F7 -DSTM32F767ZITx -c -I"D:/Udemy/MCU1/MCU1_course/MCU1/stm32f7xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"drivers/Src/stm32f767xx_spi_driver.d" -MT"drivers/Src/stm32f767xx_spi_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f767xx_spi_driver.o"
+arm-none-eabi-gcc "../drivers/Src/stm32f767xx_usart_driver.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DSTM32 -DNUCLEO_F767ZI -DSTM32F7 -DSTM32F767ZITx -c -I"D:/Udemy/MCU1/MCU1_course/MCU1/stm32f7xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"drivers/Src/stm32f767xx_usart_driver.d" -MT"drivers/Src/stm32f767xx_usart_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f767xx_usart_driver.o"
+arm-none-eabi-gcc -mcpu=cortex-m7 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f767zitx.d" -MT"Startup/startup_stm32f767zitx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f767zitx.o" "../Startup/startup_stm32f767zitx.s"
+arm-none-eabi-gcc "../Src/007spi_txonly_arduino.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DSTM32 -DNUCLEO_F767ZI -DSTM32F7 -DSTM32F767ZITx -c -I"D:/Udemy/MCU1/MCU1_course/MCU1/stm32f7xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/007spi_txonly_arduino.d" -MT"Src/007spi_txonly_arduino.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007spi_txonly_arduino.o"
+arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DSTM32 -DNUCLEO_F767ZI -DSTM32F7 -DSTM32F767ZITx -c -I"D:/Udemy/MCU1/MCU1_course/MCU1/stm32f7xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/syscalls.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DSTM32 -DNUCLEO_F767ZI -DSTM32F7 -DSTM32F767ZITx -c -I"D:/Udemy/MCU1/MCU1_course/MCU1/stm32f7xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+../drivers/Src/stm32f767xx_usart_driver.c:254:6: error: conflicting types for 'USART_SendData'; have 'void(USART_Handle_t *, uint8_t *, uint32_t)' {aka 'void(USART_Handle_t *, unsigned char *, long unsigned int)'}
+  254 | void USART_SendData(USART_Handle_t *pUSARTHandle, uint8_t *pTxBuffer, uint32_t Len)
+      |      ^~~~~~~~~~~~~~
+In file included from D:/Udemy/MCU1/MCU1_course/MCU1/stm32f7xx_drivers/drivers/Inc/stm32f767xx.h:718,
+                 from ../drivers/Src/stm32f767xx_usart_driver.c:9:
+D:/Udemy/MCU1/MCU1_course/MCU1/stm32f7xx_drivers/drivers/Inc/stm32f767xx_usart_driver.h:140:6: note: previous declaration of 'USART_SendData' with type 'void(USART_RegDef_t *, uint8_t *, uint32_t)' {aka 'void(USART_RegDef_t *, unsigned char *, long unsigned int)'}
+  140 | void USART_SendData(USART_RegDef_t *pUSARTx,uint8_t *pTxBuffer, uint32_t Len);
+      |      ^~~~~~~~~~~~~~
+../drivers/Src/stm32f767xx_usart_driver.c:301:6: error: conflicting types for 'USART_ReceiveData'; have 'void(USART_Handle_t *, uint8_t *, uint32_t)' {aka 'void(USART_Handle_t *, unsigned char *, long unsigned int)'}
+  301 | void USART_ReceiveData(USART_Handle_t *pUSARTHandle, uint8_t *pRxBuffer, uint32_t Len)
+      |      ^~~~~~~~~~~~~~~~~
+D:/Udemy/MCU1/MCU1_course/MCU1/stm32f7xx_drivers/drivers/Inc/stm32f767xx_usart_driver.h:141:6: note: previous declaration of 'USART_ReceiveData' with type 'void(USART_RegDef_t *, uint8_t *, uint32_t)' {aka 'void(USART_RegDef_t *, unsigned char *, long unsigned int)'}
+  141 | void USART_ReceiveData(USART_RegDef_t *pUSARTx, uint8_t *pRxBuffer, uint32_t Len);
+      |      ^~~~~~~~~~~~~~~~~
+../drivers/Src/stm32f767xx_usart_driver.c: In function 'USART_ReceiveData':
+../drivers/Src/stm32f767xx_usart_driver.c:307:67: error: 'USART_FLAG_RXNE' undeclared (first use in this function); did you mean 'USART_ISR_RXNE'?
+  307 |                 while(! USART_GetFlagStatus(pUSARTHandle->pUSARTx,USART_FLAG_RXNE));
+      |                                                                   ^~~~~~~~~~~~~~~
+      |                                                                   USART_ISR_RXNE
+../drivers/Src/stm32f767xx_usart_driver.c:307:67: note: each undeclared identifier is reported only once for each function it appears in
+../drivers/Src/stm32f767xx_usart_driver.c: At top level:
+../drivers/Src/stm32f767xx_usart_driver.c:240:9: warning: 'USART_GetFlagStatus' defined but not used [-Wunused-function]
+  240 | uint8_t USART_GetFlagStatus(USART_RegDef_t *pUSARTx , uint32_t FlagName)
+      |         ^~~~~~~~~~~~~~~~~~~
+make: *** [drivers/Src/subdir.mk:28: drivers/Src/stm32f767xx_usart_driver.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+01:39:14 **** Incremental Build of configuration Debug for project stm32f7xx_drivers ****
+make -j16 all 
+arm-none-eabi-gcc "../drivers/Src/stm32f767xx_gpio_driver.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DSTM32 -DNUCLEO_F767ZI -DSTM32F7 -DSTM32F767ZITx -c -I"D:/Udemy/MCU1/MCU1_course/MCU1/stm32f7xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"drivers/Src/stm32f767xx_gpio_driver.d" -MT"drivers/Src/stm32f767xx_gpio_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f767xx_gpio_driver.o"
+arm-none-eabi-gcc "../drivers/Src/stm32f767xx_i2c_driver.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DSTM32 -DNUCLEO_F767ZI -DSTM32F7 -DSTM32F767ZITx -c -I"D:/Udemy/MCU1/MCU1_course/MCU1/stm32f7xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"drivers/Src/stm32f767xx_i2c_driver.d" -MT"drivers/Src/stm32f767xx_i2c_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f767xx_i2c_driver.o"
+arm-none-eabi-gcc "../drivers/Src/stm32f767xx_spi_driver.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DSTM32 -DNUCLEO_F767ZI -DSTM32F7 -DSTM32F767ZITx -c -I"D:/Udemy/MCU1/MCU1_course/MCU1/stm32f7xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"drivers/Src/stm32f767xx_spi_driver.d" -MT"drivers/Src/stm32f767xx_spi_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f767xx_spi_driver.o"
+arm-none-eabi-gcc "../drivers/Src/stm32f767xx_usart_driver.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DSTM32 -DNUCLEO_F767ZI -DSTM32F7 -DSTM32F767ZITx -c -I"D:/Udemy/MCU1/MCU1_course/MCU1/stm32f7xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"drivers/Src/stm32f767xx_usart_driver.d" -MT"drivers/Src/stm32f767xx_usart_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f767xx_usart_driver.o"
+arm-none-eabi-gcc "../Src/007spi_txonly_arduino.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DSTM32 -DNUCLEO_F767ZI -DSTM32F7 -DSTM32F767ZITx -c -I"D:/Udemy/MCU1/MCU1_course/MCU1/stm32f7xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/007spi_txonly_arduino.d" -MT"Src/007spi_txonly_arduino.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007spi_txonly_arduino.o"
+../drivers/Src/stm32f767xx_usart_driver.c: In function 'USART_ReceiveData':
+../drivers/Src/stm32f767xx_usart_driver.c:307:67: error: 'USART_FLAG_RXNE' undeclared (first use in this function); did you mean 'USART_ISR_RXNE'?
+  307 |                 while(! USART_GetFlagStatus(pUSARTHandle->pUSARTx,USART_FLAG_RXNE));
+      |                                                                   ^~~~~~~~~~~~~~~
+      |                                                                   USART_ISR_RXNE
+../drivers/Src/stm32f767xx_usart_driver.c:307:67: note: each undeclared identifier is reported only once for each function it appears in
+../drivers/Src/stm32f767xx_usart_driver.c: At top level:
+../drivers/Src/stm32f767xx_usart_driver.c:240:9: warning: 'USART_GetFlagStatus' defined but not used [-Wunused-function]
+  240 | uint8_t USART_GetFlagStatus(USART_RegDef_t *pUSARTx , uint32_t FlagName)
+      |         ^~~~~~~~~~~~~~~~~~~
+make: *** [drivers/Src/subdir.mk:28: drivers/Src/stm32f767xx_usart_driver.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+01:39:56 **** Incremental Build of configuration Debug for project stm32f7xx_drivers ****
+make -j16 all 
+arm-none-eabi-gcc "../drivers/Src/stm32f767xx_usart_driver.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DSTM32 -DNUCLEO_F767ZI -DSTM32F7 -DSTM32F767ZITx -c -I"D:/Udemy/MCU1/MCU1_course/MCU1/stm32f7xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"drivers/Src/stm32f767xx_usart_driver.d" -MT"drivers/Src/stm32f767xx_usart_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f767xx_usart_driver.o"
+../drivers/Src/stm32f767xx_usart_driver.c:240:9: warning: 'USART_GetFlagStatus' defined but not used [-Wunused-function]
+  240 | uint8_t USART_GetFlagStatus(USART_RegDef_t *pUSARTx , uint32_t FlagName)
+      |         ^~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "stm32f7xx_drivers.elf" @"objects.list"   -mcpu=cortex-m7 -T"D:\Udemy\MCU1\MCU1_course\MCU1\stm32f7xx_drivers\STM32F767ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f7xx_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stm32f7xx_drivers.elf
+ 
 arm-none-eabi-size  stm32f7xx_drivers.elf 
+arm-none-eabi-objdump -h -S stm32f7xx_drivers.elf  > "stm32f7xx_drivers.list"
    text	   data	    bss	    dec	    hex	filename
    3416	      0	   1568	   4984	   1378	stm32f7xx_drivers.elf
 Finished building: default.size.stdout
+ 
+Finished building: stm32f7xx_drivers.list
  

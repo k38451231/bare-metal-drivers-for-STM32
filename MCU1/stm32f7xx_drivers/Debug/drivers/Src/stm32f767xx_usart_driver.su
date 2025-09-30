@@ -5,3 +5,5 @@
 ../drivers/Src/stm32f767xx_usart_driver.c:218:6:USART_IRQPriorityConfig	24	static
 ../drivers/Src/stm32f767xx_usart_driver.c:229:6:USART_PeripheralControl	24	static
 ../drivers/Src/stm32f767xx_usart_driver.c:250:6:USART_ClearFlag	16	static
+../drivers/Src/stm32f767xx_usart_driver.c:254:6:USART_SendData	32	static
+../drivers/Src/stm32f767xx_usart_driver.c:301:6:USART_ReceiveData	32	static

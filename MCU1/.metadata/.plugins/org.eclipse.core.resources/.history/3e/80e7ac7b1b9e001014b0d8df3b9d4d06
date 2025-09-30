@@ -96,11 +96,9 @@ typedef struct
 #define USART_NF_FLAG		(1 << USART_ISR_NF  	)
 #define USART_ORE_FLAG		(1 << USART_ISR_ORE  	)
 #define USART_IDLE_FLAG		(1 << USART_ISR_IDLE  	)
-
 #define USART_RXNE_FLAG		(1 << USART_ISR_RXNE  	)
 #define USART_TC_FLAG		(1 << USART_ISR_TC  	)
 #define USART_TXE_FLAG		(1 << USART_ISR_TXE  	)
-
 #define USART_LBDF_FLAG		(1 << USART_ISR_LBDF  	)
 #define USART_CTSIF_FLAG	(1 << USART_ISR_CTSIF  	)
 #define USART_CTS_FLAG		(1 << USART_ISR_CTSIF  	)
@@ -125,20 +123,20 @@ typedef struct
 /*
  * Peripheral Clock setup
  */
-void USART_PeriClockControl(USART_RegDef_t *pUSARTx, uint8_t EnorDi);
+void USART_PeriClockControl(USART_RegDef_t *pUSARTx, uint8_t EnorDi);//////////////////////
 
 /*
  * Init and De-init
  */
 void USART_Init(USART_Handle_t *pUSARTHandle);
-void USART_DeInit(USART_RegDef_t *pUSARTx);
+void USART_DeInit(USART_RegDef_t *pUSARTx);////////////////////////////
 
 
 /*
  * Data Send and Receive
  */
-void USART_SendData(USART_Handle_t *pUSARTHandle, uint8_t *pTxBuffer, uint32_t Len);
-void USART_ReceiveData(USART_Handle_t *pUSARTHandle, uint8_t *pRxBuffer, uint32_t Len);
+void USART_SendData(USART_RegDef_t *pUSARTx,uint8_t *pTxBuffer, uint32_t Len);
+void USART_ReceiveData(USART_RegDef_t *pUSARTx, uint8_t *pRxBuffer, uint32_t Len);
 uint8_t USART_SendDataIT(USART_Handle_t *pUSARTHandle,uint8_t *pTxBuffer, uint32_t Len);
 uint8_t USART_ReceiveDataIT(USART_Handle_t *pUSARTHandle, uint8_t *pRxBuffer, uint32_t Len);
 
