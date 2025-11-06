@@ -123,12 +123,6 @@ typedef struct
 #define USART_REACK_FLAG	(1 << USART_ISR_REACK  	)
 #define USART_TCBGT_FLAG	(1 << USART_ISR_TCBGT  	)
 
-/*
- * Application states
- */
-#define USART_BUSY_IN_RX 1
-#define USART_BUSY_IN_TX 2
-#define USART_READY 0
 
 /******************************************************************************************
  *								APIs supported by this driver

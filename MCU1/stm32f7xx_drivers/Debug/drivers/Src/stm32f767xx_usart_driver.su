@@ -7,3 +7,5 @@
 ../drivers/Src/stm32f767xx_usart_driver.c:250:6:USART_ClearFlag	16	static
 ../drivers/Src/stm32f767xx_usart_driver.c:254:6:USART_SendData	32	static
 ../drivers/Src/stm32f767xx_usart_driver.c:301:6:USART_ReceiveData	32	static
+../drivers/Src/stm32f767xx_usart_driver.c:364:9:USART_SendDataIT	32	static
+../drivers/Src/stm32f767xx_usart_driver.c:388:9:USART_ReceiveDataIT	32	static
