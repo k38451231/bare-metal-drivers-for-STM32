@@ -716,5 +716,6 @@ typedef struct
 #include "stm32f767xx_spi_driver.h"
 #include "stm32f767xx_i2c_driver.h"
 #include "stm32f767xx_usart_driver.h"
+#include "stm32f767xx_rcc_driver.h"
 
 #endif /* INC_STM32F767XX_H_ */
